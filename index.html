@@ -335,8 +335,6 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .teacher-line{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
 .fullscreen-btn{border:1px solid var(--purple-border);background:white;color:var(--purple-strong);border-radius:11px;min-height:39px;padding:7px 10px;font-size:12px;font-weight:800;white-space:nowrap}
 .fullscreen-btn:hover{background:var(--purple-pale)}
-.hero-equations{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:24px;opacity:.86}
-.hero-equations span{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.10);border-radius:12px;padding:8px 13px;font-family:Georgia,serif;font-size:23px}
 .mode-layout{padding-top:30px;padding-bottom:35px;max-width:980px}
 .mode-header{padding:23px 25px;margin-bottom:18px}
 .mode-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -374,7 +372,7 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .guru-detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 .exam-footer-note{color:var(--muted);font-size:11px;margin-top:12px}
 @media(max-width:700px){.mode-cards,.tp-grid{grid-template-columns:1fr}.teacher-line{font-size:10px}.mode-card,.tp-picker{padding:18px}}
-@media(max-width:600px){.header-actions .pill{display:none}.fullscreen-btn{padding:7px 8px;font-size:11px}.mode-layout{padding-top:15px}.mode-header{padding:17px}.hero-equations span{font-size:19px}.guru-filters select{min-width:135px}.guru-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.header-actions .pill{display:none}.fullscreen-btn{padding:7px 8px;font-size:11px}.mode-layout{padding-top:15px}.mode-header{padding:17px}.guru-filters select{min-width:135px}.guru-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:360px){.teacher-line{display:none}.fullscreen-btn{min-height:36px}.mode-actions .button{width:100%}}
 /* Dialog konfirmasi harus berada di atas drawer navigasi HP. */
 .modal{z-index:110}
@@ -514,7 +512,7 @@ function loginPage(message=''){
  <section class="hero" aria-label="Informasi asesmen"><div><div class="hero-label">Computer Based Test</div>
  <h1>Asesmen Sumatif<br>Matematika</h1><p>Asesmen Matematika Fase D untuk kelas IX D dan IX E.</p>
  <div class="teacher-line" style="color:white;opacity:.9">Pengampu: ${escapeHTML(cfg.namaGuru||'Rima Fitriyani, M.Pd.')}</div>
- <div class="hero-equations" aria-hidden="true"><span>πr²</span><span>∑</span><span>√a²+b²</span><span>x²</span></div></div>
+</div>
  <div class="hero-footer"><div class="hero-stat"><b>${cfg.jumlahSoal}</b><span>Butir soal utama</span></div>
  <div class="hero-stat"><b>3</b><span>Jam ujian</span></div><div class="hero-stat"><b>${cfg.jumlahTP}</b><span>Tujuan belajar</span></div></div></section>
  <section class="card login-card"><div class="eyebrow">Akses CBT</div><h2>${guru?'Masuk akun guru':'Siap mulai ujian?'}</h2>
@@ -728,11 +726,14 @@ async function bukaDashboardGuru(){state.guruData=await callServer('ringkasanGur
 function daftarAkunGabungan(){
  const result=new Map(),d=state.guruData||{daftar:[],akun:[]};
  function key(n,k){return String(k||'').toUpperCase()+'|'+String(n||'').trim().toLowerCase().replace(/\s+/g,' ');}
+ const deletedKeys=new Set((d.akun||[]).filter(a=>a.status==='NONAKTIF').map(a=>key(a.nama,a.kelas)));
  (d.akun||[]).forEach(a=>{
+  if(a.status==='NONAKTIF')return;
   const id=key(a.nama,a.kelas);result.set(id,{nama:a.nama,kelas:a.kelas,status:a.status,utama:null,remedial:null,semua:[]});
  });
  (d.daftar||[]).slice().reverse().forEach(s=>{
   const id=key(s.nama,s.kelas);
+  if(deletedKeys.has(id))return;
   if(!result.has(id))result.set(id,{nama:s.nama,kelas:s.kelas,status:'AKTIF',utama:null,remedial:null,semua:[]});
   const x=result.get(id);x.semua.push(s);
   if(s.status==='SELESAI'){if(s.mode==='REMEDIAL')x.remedial=s;else x.utama=s;}
@@ -765,7 +766,7 @@ function renderDashboardGuru(){
  <th>Ujian Utama</th><th>Remedial terbaru*</th><th>Jumlah sesi</th><th>Perbandingan TP</th><th>Akun Murid</th></tr></thead>
  <tbody id="guruRows"></tbody></table></div>
  <p class="help">*Nilai Remedial hanya untuk TP terpilih. Untuk membandingkan hasil secara tepat, gunakan tombol <b>Bandingkan TP</b> pada setiap murid.</p>
- <p class="help">Menu Hapus Akun menonaktifkan akses dan membatalkan ujian yang sedang aktif, tanpa menghapus arsip nilai di Google Sheets.</p>
+ <p class="help">Menu Hapus Akun menghilangkan nama dari daftar Guru dan membatalkan sesi aktif. Arsip nilai tetap tersimpan di Google Sheets.</p>
  ${d.dibatasi?'<p class="help">Ringkasan sesi dibatasi 140 data terbaru. Riwayat lengkap per murid dapat dibuka melalui Bandingkan TP.</p>':''}
  </section></main>`;
  function populate(){
@@ -778,7 +779,7 @@ function renderDashboardGuru(){
    <td><span class="pill ${a.status==='NONAKTIF'?'orange':'green'}">${a.status==='NONAKTIF'?'Nonaktif':'Aktif'}</span></td>
    <td><b>${utama}</b></td><td><b>${rem}</b></td><td>${a.semua.length}</td>
    <td><button type="button" class="button secondary sm" data-detail="${i}">Bandingkan TP</button></td>
-   <td><button type="button" class="button ${a.status==='NONAKTIF'?'secondary':'soft-red'} sm" data-account="${i}">${a.status==='NONAKTIF'?'Aktifkan':'Hapus Akun'}</button></td></tr>`;
+   <td><button type="button" class="button soft-red sm" data-account="${i}">Hapus Akun</button></td></tr>`;
   }).join('')||'<tr><td colspan="9" class="empty-row">Belum ada akun pada filter ini.</td></tr>';
   // Indeks tombol mengikuti array hasil filter saat ini.
   el('guruRows').onclick=async ev=>{
@@ -821,14 +822,19 @@ async function lihatPerbandingan(murid){
  }catch(e){notify(e.message);}finally{loading.remove();}
 }
 async function gantiStatusAkun(murid){
- const isInactive=murid.status==='NONAKTIF';
- const text=isInactive?`Aktifkan kembali akun ${murid.nama} (${murid.kelas})?`:
- `Hapus/nonaktifkan akun ${murid.nama} (${murid.kelas})?\n\nSesi yang masih aktif akan dibatalkan. Riwayat nilai dan rekap tetap tersimpan.`;
+ const text=`Hapus akun ${murid.nama} (${murid.kelas}) dari daftar Guru?\n\nSesi aktif akan dibatalkan. Arsip hasil ujian tetap tersimpan di Google Sheets.`;
  if(!window.confirm(text))return;
- const action=isInactive?'aktifkanAkunMurid':'hapusAkunMurid';
- try{const out=await callServer(action,state.guruToken,murid.nama,murid.kelas);
-  notify(isInactive?'Akun murid diaktifkan kembali.':(out.pesan||'Akun murid dinonaktifkan.'));
-  await bukaDashboardGuru();
+ try{
+  const out=await callServer('hapusAkunMurid',state.guruToken,murid.nama,murid.kelas);
+  if(state.guruData){
+   const same=a=>String(a.kelas).toUpperCase()===String(murid.kelas).toUpperCase()&&
+    String(a.nama).trim().toLowerCase().replace(/\s+/g,' ')===String(murid.nama).trim().toLowerCase().replace(/\s+/g,' ');
+   state.guruData.akun=(state.guruData.akun||[]).filter(a=>!same(a));
+   state.guruData.daftar=(state.guruData.daftar||[]).filter(a=>!same(a));
+   renderDashboardGuru();
+  }
+  notify(out.pesan||'Akun murid dihapus dari daftar.');
+  try{await bukaDashboardGuru();}catch(e){notify('Akun sudah dihapus. Segarkan dashboard jika diperlukan.');}
  }catch(e){notify(e.message);}
 }
 /** Diagram vektor terukur untuk soal yang membutuhkan visual; tidak memakai gambar eksternal. */
