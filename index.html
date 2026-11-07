@@ -389,54 +389,73 @@ function idPermintaan() {
   crypto.getRandomValues(n);
   return Array.from(n, b => b.toString(16).padStart(2, '0')).join('');
 }
-function pollGAS(url, id, batas) {
+/**
+ * Backend GAS tidak menyediakan CORS umum untuk AJAX browser. Permintaan
+ * dikirim menggunakan POST urlencoded no-cors tanpa menunggu respons fetch.
+ * Nilai hasil dibaca lewat polling JSONP ber-ID acak. Kredensial tidak
+ * dikirim melalui parameter URL.
+ *
+ * Dua watchdog terpisah mencegah tombol login menggantung:
+ *   - 6 detik untuk satu request polling yang tidak selesai;
+ *   - batas total 65–80 detik termasuk server GAS yang sedang cold-start.
+ */
+function pollGAS(url, id, timeoutMs) {
   return new Promise((resolve, reject) => {
     const callback = '__cbt_res_' + id;
-    let selesai = false, percobaan = 0, timer = null, node = null;
-    function rapikan() {
-      clearTimeout(timer);
-      if (node) { node.remove(); node = null; }
+    let selesai = false, jumlahCek = 0;
+    let node = null, cekTimer = null, watcher = null;
+    const batasTotal = setTimeout(() => berhenti(new Error(
+      'Koneksi ke GAS tidak mendapat balasan. Pastikan deployment versi 009, akses Anyone, lalu coba lagi. Jika masih gagal, buka Apps Script > Executions.'
+    )), timeoutMs);
+    function bersihkanCek() {
+      clearTimeout(watcher);
+      if (node) { node.onerror = null; node.remove(); node = null; }
       delete window[callback];
     }
     function berhenti(err, hasil) {
       if (selesai) return;
-      selesai = true; rapikan();
+      selesai = true;
+      clearTimeout(batasTotal);
+      clearTimeout(cekTimer);
+      bersihkanCek();
       if (err) reject(err); else resolve(hasil);
+    }
+    function ulang(delay) {
+      if (selesai) return;
+      bersihkanCek();
+      clearTimeout(cekTimer);
+      cekTimer = setTimeout(cek, delay);
     }
     function cek() {
       if (selesai) return;
-      if (Date.now() > batas) {
-        berhenti(new Error('Server terlalu lama merespons. Periksa jaringan lalu coba lagi.'));
-        return;
-      }
-      percobaan++;
-      let diterima = false;
+      jumlahCek++;
       window[callback] = function(res) {
-        diterima = true;
+        if (selesai) return;
         if (!res || res.status === 'pending') {
-          rapikan(); timer = setTimeout(cek, Math.min(2500, 950 + percobaan * 180));
+          ulang(Math.min(2700, 750 + jumlahCek * 160));
           return;
         }
-        if (res.status !== 'ready') {
-          berhenti(new Error('Balasan server tidak dikenal.'));
-        } else if (res.ok) berhenti(null, res.result);
-        else berhenti(new Error(res.error || 'Gagal menghubungi server.'));
+        if (res.status !== 'ready') berhenti(new Error('Balasan GAS tidak dikenal. Perbarui deployment versi 009.'));
+        else if (res.ok) berhenti(null, res.result);
+        else berhenti(new Error(res.error || 'GAS menolak permintaan.'));
       };
       node = document.createElement('script');
       node.async = true;
-      node.src = url + '?cbt_poll=' + id + '&callback=' + callback + '&_=' + Date.now();
-      node.onerror = () => {
-        if (selesai || diterima) return;
-        rapikan(); timer = setTimeout(cek, 1700);
-      };
-      // JSONP callback fires on successful script execution.
+      node.src = url + '?cbt_poll=' + encodeURIComponent(id) + '&callback=' + encodeURIComponent(callback) + '&_=' + Date.now();
+      node.onerror = () => ulang(1500);
+      // Beberapa redirect Apps Script tidak mengirim load/error; jangan menunggu selamanya.
+      watcher = setTimeout(() => ulang(1200), 6000);
       document.head.appendChild(node);
     }
     cek();
   });
 }
+/**
+ * no-cors form POST: permintaan dikirim segera. Jangan await fetch(),
+ * karena redirect layanan konten GAS dapat menggantung penyelesaian Promise.
+ * Polling dijalankan secara mandiri, dengan timeout untuk setiap GET dan total.
+ */
 async function callServer(name, ...args) {
-  // Keeps compatibility if the SAME HTML is hosted inside a GAS Web App.
   if (window.google && google.script && google.script.run) {
     return new Promise((resolve, reject) => {
       google.script.run.withSuccessHandler(resolve)
@@ -446,19 +465,26 @@ async function callServer(name, ...args) {
   const url = urlBackend();
   const id = idPermintaan();
   const body = new URLSearchParams({
-    cbt_bridge: '008', cbt_request_id: id,
+    cbt_bridge: '009', cbt_request_id: id,
     cbt_action: name, cbt_args: JSON.stringify(args)
   });
-  // Simple cross-origin POST (tanpa preflight); respons bersifat opaque.
-  // Hasilnya diterima melalui polling JSONP dengan ID acak, bukan dibaca via fetch.
-  // No password, token, or answers are passed via query parameters.
+  const controller = new AbortController();
   try {
-    await fetch(url, { method: 'POST', mode: 'no-cors', redirect: 'follow',
-      credentials: 'omit', cache: 'no-store', body: body });
-  } catch (_) {
-    throw new Error('Tidak dapat mengirim data ke GAS. Periksa deployment, akses Anyone, dan internet.');
+    // Cukup kirim; hasil POST tidak perlu dibaca lewat fetch lintas domain.
+    // Meski redirect menyebabkan fetch reject, GAS mungkin sudah memproses
+    // request dan menyimpan hasil pada CacheService. Biarkan polling memutuskan.
+    void fetch(url, {
+      method: 'POST', mode: 'no-cors', credentials: 'omit',
+      redirect: 'follow', cache: 'no-store', body: body,
+      signal: controller.signal
+    }).catch(() => {});
+  } catch (e) {
+    controller.abort();
+    throw new Error('Tidak dapat mengirim permintaan ke GAS. Periksa koneksi internet.');
   }
-  return pollGAS(url, id, Date.now() + 85000);
+  const timeout = name === 'mulaiUjian' || name === 'akhiriUjian' ? 80000 : 65000;
+  try { return await pollGAS(url, id, timeout); }
+  finally { controller.abort(); }
 }
 
 /** Baca metadata publik melalui JSONP (GET read-only, tanpa CORS). */
@@ -482,8 +508,8 @@ function ambilKonfigurasiAwal() {
       else resolve(result);
     }
     window[callback] = data => {
-      if (!data || !data.ok || data.bridge !== '008' || !data.result) {
-        beres(new Error('Versi GAS belum sesuai. Pilih Deploy → Manage deployments → New version.'));
+      if (!data || !data.ok || data.bridge !== '009' || !data.result) {
+        beres(new Error('Versi GAS belum sesuai (perlu 009). Pilih Deploy → Manage deployments → New version.'));
         return;
       }
       beres(null, data.result);
@@ -519,6 +545,20 @@ function nav() {
     </div></div><span class="pill">SMP / MTs</span>
   </header></div>`;
 }
+function tampilkanGagalMasuk(message, formId) {
+  const form = el(formId);
+  if (!form) { notify(message); return; }
+  let box = el('kesalahanMasuk');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'kesalahanMasuk';
+    box.className = 'notice danger';
+    box.setAttribute('role', 'alert');
+    box.style.marginTop = '12px';
+    form.appendChild(box);
+  }
+  box.textContent = message;
+}
 function loginPage(message = '') {
   cleanup();
   state.session = null; state.submitting = false;
@@ -529,9 +569,9 @@ function loginPage(message = '') {
           <input id="guruUsername" name="username" required maxlength="80" value="guru" autocomplete="username" autocapitalize="none"></div>
         <div class="field"><label for="guruPassword">Kata sandi guru</label>
           <input id="guruPassword" name="password" required type="password" autocomplete="current-password" placeholder="Masukkan kata sandi guru"></div>
-        <div class="notice">Hanya akun guru yang dapat membuka rekap nilai. Kata sandi dibuat saat pengaturan awal CBT.</div>
+        <div class="notice">Hanya akun guru yang dapat membuka rekap nilai. Gunakan kata sandi Guru yang telah ditentukan pengelola.</div>
         <button class="button full" type="submit" id="masukGuruBtn">Masuk sebagai Guru</button>
-      </form><p class="help">Kredensial tersedia di Execution log saat fungsi setupCBT() dijalankan pertama kali.</p>` :
+      </form><p class="help">Jika login gagal, mintalah pengelola memeriksa setelan password dan versi deployment GAS.</p>` :
       `<form id="loginForm" autocomplete="off">
         <div class="field"><label for="nama">Nama lengkap</label>
           <input id="nama" name="nama" required maxlength="90" placeholder="Nama sesuai daftar kelas"></div>
@@ -584,7 +624,7 @@ async function loginSubmit(ev) {
   if (!d.nama || !d.kelas) { notify('Lengkapi nama dan kelas murid.'); return; }
   button.disabled = true; button.textContent = 'Memulai ujian...';
   try { useResponse(await callServer('mulaiUjian', d)); }
-  catch (err) { notify(err.message); button.disabled = false; button.textContent = 'Mulai Ujian →'; }
+  catch (err) { tampilkanGagalMasuk(err.message, 'loginForm'); button.disabled = false; button.textContent = 'Mulai Ujian →'; }
 }
 async function loginGuruSubmit(ev) {
   ev.preventDefault();
@@ -597,7 +637,7 @@ async function loginGuruSubmit(ev) {
     state.guruToken = sesi.token; state.guruName = sesi.pengguna;
     guruStorageSet();
     await bukaDashboardGuru();
-  } catch (e) { notify(e.message); button.disabled = false; button.textContent = 'Masuk sebagai Guru'; }
+  } catch (e) { tampilkanGagalMasuk(e.message, 'guruLoginForm'); button.disabled = false; button.textContent = 'Masuk sebagai Guru'; }
 }
 async function bukaDashboardGuru() {
   if (!state.guruToken) return;
