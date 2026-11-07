@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#5b21b6">
-  <title>CBT Asesmen Sumatif Matematika • Fase D</title>
+  <title>Asesmen Sumatif Matematika Kelas IX • Rima Fitriyani, M.Pd.</title>
   <style>
     :root {
       color-scheme: light;
@@ -330,6 +330,55 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   .sidebar, .progress-fill, .button { transition: none !important; }
 }
+/* Revisi 010: fitur baru mempertahankan warna, tipografi, dan layout utama. */
+.header-actions{display:flex;align-items:center;gap:8px;min-width:0}
+.teacher-line{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.fullscreen-btn{border:1px solid var(--purple-border);background:white;color:var(--purple-strong);border-radius:11px;min-height:39px;padding:7px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+.fullscreen-btn:hover{background:var(--purple-pale)}
+.hero-equations{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:24px;opacity:.86}
+.hero-equations span{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.10);border-radius:12px;padding:8px 13px;font-family:Georgia,serif;font-size:23px}
+.mode-layout{padding-top:30px;padding-bottom:35px;max-width:980px}
+.mode-header{padding:23px 25px;margin-bottom:18px}
+.mode-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mode-card{padding:23px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.mode-card h3{font-size:20px;margin:0}
+.mode-card p{color:var(--muted);font-size:13px;margin:0 0 8px;flex:1}
+.mode-symbol{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-family:Georgia,serif;font-size:28px;color:var(--purple);background:var(--purple-pale)}
+.tp-picker{margin-top:15px;padding:22px}
+.tp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.tp-check{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;min-width:0}
+.tp-check:has(input:checked){border-color:var(--purple);background:var(--purple-pale)}
+.tp-check input{margin-top:5px;width:18px;height:18px;flex:0 0 18px;accent-color:var(--purple)}
+.tp-check-text{min-width:0;flex:1;font-size:12px}.tp-check-text strong{display:block;color:var(--purple-strong);font-size:13px}.tp-check-text small{display:block;color:var(--muted);line-height:1.4}
+.tp-check-score{font-size:11px;font-weight:800;white-space:nowrap;color:var(--warn)}
+.mode-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:15px}
+.diagram-card{width:100%;max-width:520px;border:1px solid #e6e1f1;background:linear-gradient(140deg,#fff,#faf8ff);border-radius:14px;padding:8px 12px;margin:0 auto 22px}
+.diagram-card svg{display:block;max-width:100%;width:100%;height:auto;overflow:visible}
+.diagram-card figcaption{font-size:11px;text-align:center;color:var(--muted);padding:2px 6px 6px}
+.diagram-card .stroke{stroke:#6d28d9;stroke-width:2.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.diagram-card .dash{stroke:#a78bfa;stroke-width:1.7;fill:none;stroke-dasharray:5 5}
+.diagram-card .fill{fill:#e9dcff;stroke:#6d28d9;stroke-width:2}
+.diagram-card .soft{fill:#f6efff;stroke:#a78bfa;stroke-width:2}
+.diagram-card .label{fill:#4b2b83;font-size:15px;font-family:Arial,sans-serif;font-weight:700}
+.exam-type{display:inline-block;margin-top:6px;font-size:11px;color:var(--purple-strong);font-weight:800}
+.guru-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 15px}
+.guru-filters label{font-size:12px;color:var(--muted);font-weight:800;display:flex;flex-direction:column;gap:4px}
+.guru-filters select{min-height:42px;border:1px solid #ddd8e7;border-radius:10px;padding:7px 12px;background:white;color:var(--ink);min-width:150px}
+.guru-table td .button{white-space:nowrap}
+.account-state{font-size:11px;font-weight:750}
+.detail-modal{max-height:85dvh;overflow-y:auto;max-width:920px;width:min(920px,calc(100vw - 24px))}
+.detail-modal .modal-actions{position:sticky;bottom:-20px;padding-top:12px;background:white}
+.diff-plus{color:var(--success);font-weight:850}.diff-minus{color:var(--danger);font-weight:850}
+.guru-detail .table-scroll{max-height:390px}
+.guru-detail .tp-list{min-width:600px}
+.guru-detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.exam-footer-note{color:var(--muted);font-size:11px;margin-top:12px}
+@media(max-width:700px){.mode-cards,.tp-grid{grid-template-columns:1fr}.teacher-line{font-size:10px}.mode-card,.tp-picker{padding:18px}}
+@media(max-width:600px){.header-actions .pill{display:none}.fullscreen-btn{padding:7px 8px;font-size:11px}.mode-layout{padding-top:15px}.mode-header{padding:17px}.hero-equations span{font-size:19px}.guru-filters select{min-width:135px}.guru-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.teacher-line{display:none}.fullscreen-btn{min-height:36px}.mode-actions .button{width:100%}}
+/* Dialog konfirmasi harus berada di atas drawer navigasi HP. */
+.modal{z-index:110}
+
   </style>
 </head>
 <body>
@@ -351,666 +400,592 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 'use strict';
 const STORAGE_KEY = 'cbt_mtk_fase_d_v1';
 const GURU_STORAGE_KEY = 'cbt_mtk_guru_v1';
-const app = document.getElementById('app');
-const modal = document.getElementById('modal');
-const state = {
-  public: { judul: 'Asesmen Sumatif Matematika', subjudul: 'SMP/MTs • Fase D', jumlahSoal: 85, durasiMenit: 180, jumlahTP: 12, kktp: 73, perluKode: false },
-  token: '', session: null, answers: {}, flags: {}, current: 0,
-  saving: false, needSave: false, submitting: false, tick: null,
-  saveTimer: null, periodic: null, started: false, role: 'murid',
-  guruToken: '', guruName: '', guruData: null
+const app=document.getElementById('app');
+const modal=document.getElementById('modal');
+const el=id=>document.getElementById(id);
+const escapeHTML=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const GAS_WEB_APP_URL='https://script.google.com/macros/s/AKfycbzgs8-Ui--VIs7Cx2Rax4Fp8tlG6atjsPz8aBweSW5XNXlM60Shi6x2SX04z7dTTKyn/exec';
+const state={
+ public:{judul:'Asesmen Sumatif Matematika',subjudul:'Kelas IX • Fase D',namaGuru:'Rima Fitriyani, M.Pd.',
+   jumlahSoal:85,durasiMenit:180,jumlahTP:12,daftarTP:[],kktp:73,kelas:['IX D','IX E'],perluKode:false},
+ token:'',session:null,answers:{},flags:{},current:0,saving:false,needSave:false,submitting:false,
+ tick:null,saveTimer:null,periodic:null,role:'murid',guruToken:'',guruName:'',guruData:null,
+ draft:{nama:'',kelas:'IX D',kodeAkses:''},profil:null,mode:'UTAMA',tpPilihan:[],
+ filterKelas:'SEMUA',filterMode:'SEMUA',detail:null
 };
-const escapeHTML = s => String(s === null || s === undefined ? '' : s)
-  .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-  .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-const el = id => document.getElementById(id);
-// URL deployment GAS pemilik CBT sudah diisi. Tidak perlu konfigurasi manual.
-// Password Guru dan kunci jawaban TIDAK disimpan dalam HTML publik.
-const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzgs8-Ui--VIs7Cx2Rax4Fp8tlG6atjsPz8aBweSW5XNXlM60Shi6x2SX04z7dTTKyn/exec';
-
-function urlBackend() {
-  const raw = GAS_WEB_APP_URL.trim();
-  let u;
-  try { u = new URL(raw); } catch (_) {
-    throw new Error('Frontend belum terhubung. Pengelola harus mengisi GAS_WEB_APP_URL di index.html.');
+function urlBackend(){
+ let u;try{u=new URL(GAS_WEB_APP_URL.trim());}catch(e){throw new Error('Alamat backend GAS belum diatur.');}
+ if(u.protocol!=='https:'||u.hostname!=='script.google.com'||!/^\/macros\/s\/[a-zA-Z0-9_-]+\/exec\/?$/.test(u.pathname))
+   throw new Error('Alamat URL GAS tidak valid.');
+ return u.origin+u.pathname.replace(/\/$/,'');
+}
+function idPermintaan(){
+ if(!crypto||!crypto.getRandomValues)throw new Error('Gunakan browser HTTPS untuk menjalankan CBT.');
+ const a=new Uint8Array(16);crypto.getRandomValues(a);
+ return Array.from(a,x=>x.toString(16).padStart(2,'0')).join('');
+}
+function pollGAS(url,id,timeoutMs){
+ return new Promise((resolve,reject)=>{
+  const cb='__cbt_res_'+id;let done=false,cycles=0,node=null,watcher=null,again=null;
+  const total=setTimeout(()=>finish(new Error('GAS tidak memberikan jawaban. Pastikan deployment Revisi 010 memiliki akses Anyone, kemudian lihat Executions di GAS.')),timeoutMs);
+  function clearNode(){clearTimeout(watcher);if(node){node.onerror=null;node.remove();node=null;}delete window[cb];}
+  function finish(err,value){if(done)return;done=true;clearTimeout(total);clearTimeout(again);clearNode();err?reject(err):resolve(value);}
+  function retry(delay){if(done)return;clearNode();clearTimeout(again);again=setTimeout(check,delay);}
+  function check(){
+   if(done)return;cycles++;
+   window[cb]=res=>{
+    if(done)return;
+    if(!res||res.status==='pending'){retry(Math.min(2500,650+cycles*140));return;}
+    if(res.status!=='ready')finish(new Error('Balasan GAS tidak dikenali; update deployment ke Revisi 010.'));
+    else if(res.ok)finish(null,res.result);
+    else finish(new Error(res.error||'GAS menolak permintaan.'));
+   };
+   node=document.createElement('script');node.async=true;
+   node.src=url+'?cbt_poll='+encodeURIComponent(id)+'&callback='+encodeURIComponent(cb)+'&_='+Date.now();
+   node.onerror=()=>retry(1400);
+   watcher=setTimeout(()=>retry(1300),5500);
+   document.head.appendChild(node);
   }
-  if (u.protocol !== 'https:' || u.hostname !== 'script.google.com' ||
-      !/^\/macros\/s\/[a-zA-Z0-9_-]+\/exec\/?$/.test(u.pathname) ||
-      u.search || u.hash || u.username || u.password) {
-    throw new Error('URL GAS harus berbentuk https://script.google.com/macros/s/.../exec');
-  }
-  return u.origin + u.pathname.replace(/\/$/, '');
+  check();
+ });
 }
-function idPermintaan() {
-  if (!window.crypto || !window.crypto.getRandomValues) {
-    throw new Error('Browser harus mendukung koneksi HTTPS untuk menjalankan CBT.');
-  }
-  const n = new Uint8Array(16);
-  crypto.getRandomValues(n);
-  return Array.from(n, b => b.toString(16).padStart(2, '0')).join('');
+async function callServer(name,...args){
+ const url=urlBackend(),id=idPermintaan(),body=new URLSearchParams({cbt_bridge:'010',cbt_request_id:id,cbt_action:name,cbt_args:JSON.stringify(args)});
+ const controller=new AbortController();
+ try{void fetch(url,{method:'POST',mode:'no-cors',credentials:'omit',cache:'no-store',redirect:'follow',body,signal:controller.signal}).catch(()=>{});}
+ catch(e){throw new Error('Tidak dapat mengirim data ke GAS. Periksa koneksi internet.');}
+ const timeout=['mulaiUjian','akhiriUjian','ringkasanGuru','detailMuridGuru'].includes(name)?80000:65000;
+ try{return await pollGAS(url,id,timeout);}finally{controller.abort();}
 }
-/**
- * Backend GAS tidak menyediakan CORS umum untuk AJAX browser. Permintaan
- * dikirim menggunakan POST urlencoded no-cors tanpa menunggu respons fetch.
- * Nilai hasil dibaca lewat polling JSONP ber-ID acak. Kredensial tidak
- * dikirim melalui parameter URL.
- *
- * Dua watchdog terpisah mencegah tombol login menggantung:
- *   - 6 detik untuk satu request polling yang tidak selesai;
- *   - batas total 65–80 detik termasuk server GAS yang sedang cold-start.
- */
-function pollGAS(url, id, timeoutMs) {
-  return new Promise((resolve, reject) => {
-    const callback = '__cbt_res_' + id;
-    let selesai = false, jumlahCek = 0;
-    let node = null, cekTimer = null, watcher = null;
-    const batasTotal = setTimeout(() => berhenti(new Error(
-      'Koneksi ke GAS tidak mendapat balasan. Pastikan deployment versi 009, akses Anyone, lalu coba lagi. Jika masih gagal, buka Apps Script > Executions.'
-    )), timeoutMs);
-    function bersihkanCek() {
-      clearTimeout(watcher);
-      if (node) { node.onerror = null; node.remove(); node = null; }
-      delete window[callback];
-    }
-    function berhenti(err, hasil) {
-      if (selesai) return;
-      selesai = true;
-      clearTimeout(batasTotal);
-      clearTimeout(cekTimer);
-      bersihkanCek();
-      if (err) reject(err); else resolve(hasil);
-    }
-    function ulang(delay) {
-      if (selesai) return;
-      bersihkanCek();
-      clearTimeout(cekTimer);
-      cekTimer = setTimeout(cek, delay);
-    }
-    function cek() {
-      if (selesai) return;
-      jumlahCek++;
-      window[callback] = function(res) {
-        if (selesai) return;
-        if (!res || res.status === 'pending') {
-          ulang(Math.min(2700, 750 + jumlahCek * 160));
-          return;
-        }
-        if (res.status !== 'ready') berhenti(new Error('Balasan GAS tidak dikenal. Perbarui deployment versi 009.'));
-        else if (res.ok) berhenti(null, res.result);
-        else berhenti(new Error(res.error || 'GAS menolak permintaan.'));
-      };
-      node = document.createElement('script');
-      node.async = true;
-      node.src = url + '?cbt_poll=' + encodeURIComponent(id) + '&callback=' + encodeURIComponent(callback) + '&_=' + Date.now();
-      node.onerror = () => ulang(1500);
-      // Beberapa redirect Apps Script tidak mengirim load/error; jangan menunggu selamanya.
-      watcher = setTimeout(() => ulang(1200), 6000);
-      document.head.appendChild(node);
-    }
-    cek();
-  });
-}
-/**
- * no-cors form POST: permintaan dikirim segera. Jangan await fetch(),
- * karena redirect layanan konten GAS dapat menggantung penyelesaian Promise.
- * Polling dijalankan secara mandiri, dengan timeout untuk setiap GET dan total.
- */
-async function callServer(name, ...args) {
-  if (window.google && google.script && google.script.run) {
-    return new Promise((resolve, reject) => {
-      google.script.run.withSuccessHandler(resolve)
-        .withFailureHandler(err => reject(new Error(err && err.message ? err.message : String(err))))[name](...args);
-    });
-  }
-  const url = urlBackend();
-  const id = idPermintaan();
-  const body = new URLSearchParams({
-    cbt_bridge: '009', cbt_request_id: id,
-    cbt_action: name, cbt_args: JSON.stringify(args)
-  });
-  const controller = new AbortController();
-  try {
-    // Cukup kirim; hasil POST tidak perlu dibaca lewat fetch lintas domain.
-    // Meski redirect menyebabkan fetch reject, GAS mungkin sudah memproses
-    // request dan menyimpan hasil pada CacheService. Biarkan polling memutuskan.
-    void fetch(url, {
-      method: 'POST', mode: 'no-cors', credentials: 'omit',
-      redirect: 'follow', cache: 'no-store', body: body,
-      signal: controller.signal
-    }).catch(() => {});
-  } catch (e) {
-    controller.abort();
-    throw new Error('Tidak dapat mengirim permintaan ke GAS. Periksa koneksi internet.');
-  }
-  const timeout = name === 'mulaiUjian' || name === 'akhiriUjian' ? 80000 : 65000;
-  try { return await pollGAS(url, id, timeout); }
-  finally { controller.abort(); }
-}
-
-/** Baca metadata publik melalui JSONP (GET read-only, tanpa CORS). */
-function ambilKonfigurasiAwal() {
-  const url = urlBackend();
-  const id = idPermintaan();
-  const callback = '__cbt_pub_' + id;
-  return new Promise((resolve, reject) => {
-    let selesai = false;
-    const node = document.createElement('script');
-    const timeout = setTimeout(() => beres(new Error(
-      'GAS tidak merespons. Pastikan deployment versi terbaru dan akses Web App = Anyone.'
-    )), 16000);
-    function beres(err, result) {
-      if (selesai) return;
-      selesai = true;
-      clearTimeout(timeout);
-      node.remove();
-      delete window[callback];
-      if (err) reject(err);
-      else resolve(result);
-    }
-    window[callback] = data => {
-      if (!data || !data.ok || data.bridge !== '009' || !data.result) {
-        beres(new Error('Versi GAS belum sesuai (perlu 009). Pilih Deploy → Manage deployments → New version.'));
-        return;
-      }
-      beres(null, data.result);
-    };
-    node.onerror = () => beres(new Error(
-      'GAS belum dapat diakses publik. Di setelan deployment, pilih akses Anyone dan deploy versi baru.'
-    ));
-    node.src = url + '?cbt_public=' + id + '&callback=' + callback + '&_=' + Date.now();
-    document.head.appendChild(node);
-  });
-}
-
-function storageGet() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (_) { return null; } }
-function storageSet() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    token: state.token, answers: state.answers, flags: state.flags,
-    current: state.current
-  })); } catch (_) { /* Penyimpanan browser mungkin dinonaktifkan. */ }
-}
-function storageClear() { try { localStorage.removeItem(STORAGE_KEY); } catch (_) {} }
-function guruStorageGet() { try { return JSON.parse(sessionStorage.getItem(GURU_STORAGE_KEY) || 'null'); } catch (_) { return null; } }
-function guruStorageSet() { try { sessionStorage.setItem(GURU_STORAGE_KEY, JSON.stringify({ token: state.guruToken, nama: state.guruName })); } catch (_) {} }
-function guruStorageClear() { try { sessionStorage.removeItem(GURU_STORAGE_KEY); } catch (_) {} }
-function notify(text) {
-  const t = el('toast'); t.className = 'toast'; t.textContent = text; t.hidden = false;
-  clearTimeout(notify.timer); notify.timer = setTimeout(() => t.hidden = true, 3700);
-}
-function nav() {
-  return `<div class="nav-shell"><header class="nav wrap">
-    <div class="brand"><div class="brand-mark" aria-hidden="true">∑</div><div>
-      <div class="brand-title">CBT Matematika</div>
-      <div class="brand-small">Asesmen Sumatif • Fase D</div>
-    </div></div><span class="pill">SMP / MTs</span>
-  </header></div>`;
-}
-function tampilkanGagalMasuk(message, formId) {
-  const form = el(formId);
-  if (!form) { notify(message); return; }
-  let box = el('kesalahanMasuk');
-  if (!box) {
-    box = document.createElement('div');
-    box.id = 'kesalahanMasuk';
-    box.className = 'notice danger';
-    box.setAttribute('role', 'alert');
-    box.style.marginTop = '12px';
-    form.appendChild(box);
-  }
-  box.textContent = message;
-}
-function loginPage(message = '') {
-  cleanup();
-  state.session = null; state.submitting = false;
-  const cfg = state.public;
-  const guru = state.role === 'guru';
-  const form = guru ? `<form id="guruLoginForm" autocomplete="on">
-        <div class="field"><label for="guruUsername">Nama pengguna guru</label>
-          <input id="guruUsername" name="username" required maxlength="80" value="guru" autocomplete="username" autocapitalize="none"></div>
-        <div class="field"><label for="guruPassword">Kata sandi guru</label>
-          <input id="guruPassword" name="password" required type="password" autocomplete="current-password" placeholder="Masukkan kata sandi guru"></div>
-        <div class="notice">Hanya akun guru yang dapat membuka rekap nilai. Gunakan kata sandi Guru yang telah ditentukan pengelola.</div>
-        <button class="button full" type="submit" id="masukGuruBtn">Masuk sebagai Guru</button>
-      </form><p class="help">Jika login gagal, mintalah pengelola memeriksa setelan password dan versi deployment GAS.</p>` :
-      `<form id="loginForm" autocomplete="off">
-        <div class="field"><label for="nama">Nama lengkap</label>
-          <input id="nama" name="nama" required maxlength="90" placeholder="Nama sesuai daftar kelas"></div>
-        <div class="field"><label for="kelas">Kelas</label>
-          <select id="kelas" name="kelas" required>
-            <option value="" selected disabled>Pilih kelas</option>
-            <option value="IX D">IX D</option>
-            <option value="IX E">IX E</option>
-          </select></div>
-        ${cfg.perluKode ? `<div class="field"><label for="kodeAkses">Kode akses dari guru</label>
-          <input id="kodeAkses" name="kodeAkses" required type="password" placeholder="Masukkan kode akses"></div>` : ''}
-        <div class="notice">Jawaban tersimpan otomatis. Gunakan nama dan kelas yang sama bila ingin melanjutkan sesi.</div>
-        <button class="button full" type="submit" id="mulaiBtn">Mulai Ujian <span aria-hidden="true">→</span></button>
-      </form><p class="help">Waktu ujian dihitung sejak mulai dan tetap berjalan bila halaman ditutup. Gunakan identitas yang benar.</p>`;
-  app.innerHTML = `${nav()}<main class="wrap landing">
-    <section class="hero" aria-label="Informasi ujian"><div>
-      <div class="hero-label">Computer Based Test</div>
-      <h1>${escapeHTML(cfg.judul)}</h1>
-      <p>Ujian digital yang terstruktur untuk mengukur ketercapaian tujuan pembelajaran Matematika pada Fase D.</p>
-    </div><div class="hero-footer">
-      <div class="hero-stat"><b>${cfg.jumlahSoal}</b><span>Butir soal</span></div>
-      <div class="hero-stat"><b>${cfg.durasiMenit / 60}</b><span>Jam ujian</span></div>
-      <div class="hero-stat"><b>${cfg.jumlahTP}</b><span>Tujuan belajar</span></div>
-    </div></section>
-    <section class="card login-card"><div class="eyebrow">Akses CBT</div>
-      <h2>${guru ? 'Masuk akun guru' : 'Siap mulai ujian?'}</h2>
-      <p class="sub">${guru ? 'Masuk untuk melihat ringkasan hasil asesmen murid.' : 'Masuk sebagai murid menggunakan nama lengkap dan kelas.'}</p>
-      <div class="role-switch" role="group" aria-label="Pilih jenis akun">
-        <button type="button" class="role-option${guru ? '' : ' active'}" id="pilihMurid" aria-pressed="${!guru}">♟ Murid</button>
-        <button type="button" class="role-option${guru ? ' active' : ''}" id="pilihGuru" aria-pressed="${guru}">▣ Guru</button>
-      </div>
-      ${message ? `<div class="notice danger" role="alert">${escapeHTML(message)}</div>` : ''}
-      ${form}
-    </section>
-  </main><div class="bottom-note">CBT Asesmen Sumatif Matematika • KKTP ${cfg.kktp}</div>`;
-  window.scrollTo(0, 0);
-  el('pilihMurid').onclick = () => { state.role = 'murid'; loginPage(); };
-  el('pilihGuru').onclick = () => { state.role = 'guru'; loginPage(); };
-  if (guru) el('guruLoginForm').addEventListener('submit', loginGuruSubmit);
-  else el('loginForm').addEventListener('submit', loginSubmit);
-}
-async function loginSubmit(ev) {
-  ev.preventDefault();
-  const button = el('mulaiBtn');
-  const d = {
-    nama: el('nama').value.trim(),
-    kelas: el('kelas').value.trim(),
-    kodeAkses: el('kodeAkses') ? el('kodeAkses').value.trim() : ''
+function ambilKonfigurasiAwal(){
+ const url=urlBackend(),id=idPermintaan(),cb='__cbt_pub_'+id;
+ return new Promise((resolve,reject)=>{
+  let done=false;const script=document.createElement('script');
+  const watchdog=setTimeout(()=>end(new Error('GAS tidak merespons. Pastikan Web App GAS menggunakan New version dan akses Anyone.')),17000);
+  function end(err,value){if(done)return;done=true;clearTimeout(watchdog);script.remove();delete window[cb];err?reject(err):resolve(value);}
+  window[cb]=d=>{
+   if(!d||!d.ok||d.bridge!=='010'||!d.result){end(new Error('Versi GAS belum sesuai. Deploy Code.gs Revisi 010 sebagai New version.'));return;}
+   end(null,d.result);
   };
-  if (!d.nama || !d.kelas) { notify('Lengkapi nama dan kelas murid.'); return; }
-  button.disabled = true; button.textContent = 'Memulai ujian...';
-  try { useResponse(await callServer('mulaiUjian', d)); }
-  catch (err) { tampilkanGagalMasuk(err.message, 'loginForm'); button.disabled = false; button.textContent = 'Mulai Ujian →'; }
+  script.onerror=()=>end(new Error('GAS tidak dapat diakses. Periksa izin deployment: Anyone.'));
+  script.src=url+'?cbt_public='+id+'&callback='+cb+'&_='+Date.now();document.head.appendChild(script);
+ });
 }
-async function loginGuruSubmit(ev) {
-  ev.preventDefault();
-  const button = el('masukGuruBtn');
-  const data = { username: el('guruUsername').value.trim(), password: el('guruPassword').value };
-  if (!data.username || !data.password) { notify('Masukkan nama pengguna dan kata sandi guru.'); return; }
-  button.disabled = true; button.textContent = 'Memeriksa akun...';
-  try {
-    const sesi = await callServer('masukGuru', data);
-    state.guruToken = sesi.token; state.guruName = sesi.pengguna;
-    guruStorageSet();
-    await bukaDashboardGuru();
-  } catch (e) { tampilkanGagalMasuk(e.message, 'guruLoginForm'); button.disabled = false; button.textContent = 'Masuk sebagai Guru'; }
+function storageGet(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');}catch(e){return null;}}
+function storageSet(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({token:state.token,answers:state.answers,flags:state.flags,current:state.current}));}catch(e){}}
+function storageClear(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}}
+function guruStorageGet(){try{return JSON.parse(sessionStorage.getItem(GURU_STORAGE_KEY)||'null');}catch(e){return null;}}
+function guruStorageSet(){try{sessionStorage.setItem(GURU_STORAGE_KEY,JSON.stringify({token:state.guruToken,nama:state.guruName}));}catch(e){}}
+function guruStorageClear(){try{sessionStorage.removeItem(GURU_STORAGE_KEY);}catch(e){}}
+function notify(text){const t=el('toast');if(!t)return;t.className='toast';t.textContent=text;t.hidden=false;clearTimeout(notify.timer);notify.timer=setTimeout(()=>t.hidden=true,5000);}
+async function toggleFullScreen(){
+ try{
+  if(document.fullscreenElement){await document.exitFullscreen();}
+  else if(document.documentElement.requestFullscreen){await document.documentElement.requestFullscreen();}
+  else notify('Browser ini tidak menyediakan fullscreen untuk halaman web. Gunakan menu layar penuh browser bila tersedia.');
+ }catch(e){notify('Fullscreen dibatasi browser. Coba melalui menu browser.');}
+ updateFullscreenButtons();
 }
-async function bukaDashboardGuru() {
-  if (!state.guruToken) return;
-  const data = await callServer('ringkasanGuru', state.guruToken);
-  state.guruData = data;
-  renderDashboardGuru();
+function updateFullscreenButtons(){document.querySelectorAll('[data-fullscreen]').forEach(btn=>btn.textContent=document.fullscreenElement?'⤢ Keluar fullscreen':'⛶ Fullscreen');}
+document.addEventListener('fullscreenchange',updateFullscreenButtons);
+function nav(){return `<div class="nav-shell"><header class="nav wrap">
+ <div class="brand"><div class="brand-mark" aria-hidden="true">∑</div><div>
+ <div class="brand-title">CBT Matematika</div><div class="brand-small">Kelas IX • ${escapeHTML(state.public.namaGuru||'Rima Fitriyani, M.Pd.')}</div></div></div>
+ <div class="header-actions"><span class="pill">SMP / MTs</span><button type="button" class="fullscreen-btn" data-fullscreen>⛶ Fullscreen</button></div></header></div>`;}
+function bindFullScreen(){document.querySelectorAll('[data-fullscreen]').forEach(b=>b.addEventListener('click',toggleFullScreen));updateFullscreenButtons();}
+function tampilkanGagalMasuk(message,formId){const form=el(formId);if(!form){notify(message);return;}let box=el('kesalahanMasuk');if(!box){box=document.createElement('div');box.id='kesalahanMasuk';box.className='notice danger';box.setAttribute('role','alert');form.appendChild(box);}box.textContent=message;}
+function cleanup(){clearInterval(state.tick);clearInterval(state.periodic);clearTimeout(state.saveTimer);state.tick=null;state.periodic=null;state.saveTimer=null;}
+function loginPage(message=''){
+ cleanup();state.session=null;state.submitting=false;
+ const guru=state.role==='guru',cfg=state.public;
+ const form=guru?`<form id="guruLoginForm" autocomplete="on">
+   <div class="field"><label for="guruUsername">Username guru</label><input id="guruUsername" autocomplete="username" required maxlength="80" value="guru"></div>
+   <div class="field"><label for="guruPassword">Password guru</label><input id="guruPassword" type="password" autocomplete="current-password" required placeholder="Masukkan password guru"></div>
+   <div class="notice">Dashboard khusus Guru: rekap kelas IX D/IX E, nilai Ujian Utama, Remedial, serta perbandingan setiap TP.</div>
+   <button class="button full" id="masukGuruBtn" type="submit">Masuk sebagai Guru</button></form>`:
+ `<form id="muridLoginForm">
+   <div class="field"><label for="namaPeserta">Nama lengkap</label><input id="namaPeserta" required maxlength="90" autocomplete="name" placeholder="Nama sesuai daftar kelas" value="${escapeHTML(state.draft.nama)}"></div>
+   <div class="field"><label for="kelasPeserta">Kelas</label><select id="kelasPeserta" required><option value="IX D" ${state.draft.kelas==='IX D'?'selected':''}>IX D</option><option value="IX E" ${state.draft.kelas==='IX E'?'selected':''}>IX E</option></select></div>
+   ${cfg.perluKode?`<div class="field"><label for="kodeAkses">Kode akses ujian</label><input id="kodeAkses" value="${escapeHTML(state.draft.kodeAkses)}" required autocomplete="off"></div>`:''}
+   <div class="notice">Setelah masuk, pilih <b>Ujian Utama</b> atau <b>Remedial</b>. Kedua mode berdurasi maksimal 3 jam dan dapat dikumpulkan lebih cepat.</div>
+   <button class="button full" id="lanjutBtn" type="submit">Lanjut memilih ujian →</button>
+   <p class="help">Jawaban disimpan otomatis. Masuk kembali menggunakan nama dan kelas yang sama jika ingin melanjutkan sesi.</p></form>`;
+ app.innerHTML=`${nav()}<main class="wrap landing">
+ <section class="hero" aria-label="Informasi asesmen"><div><div class="hero-label">Computer Based Test</div>
+ <h1>Asesmen Sumatif<br>Matematika</h1><p>Asesmen Matematika Fase D untuk kelas IX D dan IX E.</p>
+ <div class="teacher-line" style="color:white;opacity:.9">Pengampu: ${escapeHTML(cfg.namaGuru||'Rima Fitriyani, M.Pd.')}</div>
+ <div class="hero-equations" aria-hidden="true"><span>πr²</span><span>∑</span><span>√a²+b²</span><span>x²</span></div></div>
+ <div class="hero-footer"><div class="hero-stat"><b>${cfg.jumlahSoal}</b><span>Butir soal utama</span></div>
+ <div class="hero-stat"><b>3</b><span>Jam ujian</span></div><div class="hero-stat"><b>${cfg.jumlahTP}</b><span>Tujuan belajar</span></div></div></section>
+ <section class="card login-card"><div class="eyebrow">Akses CBT</div><h2>${guru?'Masuk akun guru':'Siap mulai ujian?'}</h2>
+ <p class="sub">${guru?'Masuk untuk melihat hasil asesmen dan remedial murid.':'Masuk menggunakan nama lengkap dan kelas.'}</p>
+ <div class="role-switch"><button type="button" id="roleMurid" class="role-option ${guru?'':'active'}">♟ Murid</button>
+ <button type="button" id="roleGuru" class="role-option ${guru?'active':''}">▣ Guru</button></div>
+ ${message?`<div class="notice danger" role="alert">${escapeHTML(message)}</div>`:''}${form}</section></main>`;
+ el('roleMurid').onclick=()=>{state.role='murid';loginPage();};
+ el('roleGuru').onclick=()=>{state.role='guru';loginPage();};
+ const student=el('muridLoginForm'),teacher=el('guruLoginForm');
+ if(student)student.addEventListener('submit',loginMuridSubmit);
+ if(teacher)teacher.addEventListener('submit',loginGuruSubmit);
+ bindFullScreen();
 }
-function renderDashboardGuru() {
-  const data = state.guruData;
-  if (!data) return;
-  const rows = data.daftar.map((p, index) => `<tr>
-      <td>${index + 1}</td><td><strong>${escapeHTML(p.nama)}</strong></td><td>${escapeHTML(p.kelas)}</td>
-      <td><span class="pill ${p.status === 'SELESAI' ? 'green' : p.status === 'WAKTU HABIS' ? 'orange' : 'gray'}">${escapeHTML(p.status)}</span></td>
-      <td>${p.nilai === null ? '—' : scoreFmt(p.nilai)}</td>
-      <td>${p.dijawab === null ? '—' : p.dijawab + ' / ' + dataTotalSoal()}</td>
-      <td>${escapeHTML(localTime(p.selesai || p.mulai))}</td></tr>`).join('');
-  app.innerHTML = `${nav()}<main class="wrap guru-dashboard">
-    <div class="guru-heading"><div><div class="eyebrow">Panel Guru</div><h2>Rekap Asesmen Sumatif</h2>
-       <p class="sub" style="margin-bottom:0">Ringkasan hasil murid • Diperbarui ${escapeHTML(localTime(data.diperbarui))}</p></div>
-       <button class="button ghost sm" type="button" id="keluarGuru">Keluar akun</button></div>
-    <div class="guru-stats">
-       <div class="card guru-stat"><span>Total murid terdaftar</span><strong>${data.total}</strong></div>
-       <div class="card guru-stat"><span>Ujian selesai</span><strong>${data.selesai}</strong></div>
-       <div class="card guru-stat"><span>Belum selesai</span><strong>${data.aktif}</strong></div>
-       <div class="card guru-stat"><span>Nilai rata-rata</span><strong>${data.rataRata === null ? '—' : scoreFmt(data.rataRata)}</strong></div>
-    </div>
-    <section class="card guru-table-card">
-      <div class="guru-toolbar"><div><h3>Daftar Hasil Murid</h3><p class="sub" style="margin:0">Terbaru ditampilkan lebih dahulu</p></div>
-        <div class="guru-actions"><button class="button secondary sm" id="segarkanGuru" type="button">↻ Segarkan</button>
-          <a class="button sm" target="_blank" rel="noopener noreferrer" href="${escapeHTML(data.spreadsheetUrl)}">Buka Spreadsheet</a></div></div>
-      <div class="gurudata-scroll-tip">Geser tabel ke samping untuk melihat seluruh kolom →</div>
-      <div class="table-scroll" role="region" aria-label="Daftar hasil murid" tabindex="0"><table class="guru-table"><thead><tr><th>No.</th><th>Nama</th><th>Kelas</th><th>Status</th><th>Nilai</th><th>Terjawab</th><th>Waktu</th></tr></thead>
-       <tbody>${rows || '<tr><td colspan="7" class="empty-row">Belum ada murid yang memulai ujian.</td></tr>'}</tbody></table></div>
-      ${data.dibatasi ? '<p class="help">Menampilkan maksimal 300 entri terbaru. Semua data tersimpan pada Spreadsheet.</p>' : ''}
-      <p class="help">Status “WAKTU HABIS” adalah sesi yang belum difinalisasi. Nilai akan muncul setelah sistem menyelesaikan sesi tersebut.</p>
-    </section>
-  </main><div class="bottom-note">Akses panel guru memerlukan autentikasi server.</div>`;
-  window.scrollTo(0, 0);
-  el('segarkanGuru').onclick = async () => {
-    const b = el('segarkanGuru'); b.disabled = true;
-    try { await bukaDashboardGuru(); } catch(e) { notify(e.message); b.disabled = false; }
+async function loginMuridSubmit(ev){
+ ev.preventDefault();const btn=el('lanjutBtn');
+ const nama=el('namaPeserta').value.trim(),kelas=el('kelasPeserta').value,kode=el('kodeAkses')?el('kodeAkses').value.trim():'';
+ if(!nama||!['IX D','IX E'].includes(kelas))return;
+ state.draft={nama,kelas,kodeAkses:kode};btn.disabled=true;btn.textContent='Memeriksa data...';
+ try{state.profil=await callServer('profilMurid',state.draft);showModePage();}
+ catch(e){tampilkanGagalMasuk(e.message,'muridLoginForm');btn.disabled=false;btn.textContent='Lanjut memilih ujian →';}
+}
+async function loginGuruSubmit(ev){
+ ev.preventDefault();const btn=el('masukGuruBtn');btn.disabled=true;btn.textContent='Memeriksa akun...';
+ try{const data=await callServer('masukGuru',{username:el('guruUsername').value.trim(),password:el('guruPassword').value});
+  state.guruToken=data.token;state.guruName=data.pengguna;guruStorageSet();await bukaDashboardGuru();}
+ catch(e){tampilkanGagalMasuk(e.message,'guruLoginForm');btn.disabled=false;btn.textContent='Masuk sebagai Guru';}
+}
+function showModePage(message=''){
+ const name=escapeHTML(state.draft.nama),kelas=escapeHTML(state.draft.kelas),p=state.profil||{};
+ const tps=(p.daftarTP||state.public.daftarTP||[]),finished=!!p.punyaUtama;
+ state.mode='UTAMA';state.tpPilihan=[];
+ app.innerHTML=`${nav()}<main class="wrap mode-layout">
+ <section class="card mode-header"><div class="eyebrow">Pilih jenis ujian</div><h2>${name}</h2>
+ <p class="sub" style="margin-bottom:0">Kelas ${kelas} • Durasi maksimal <b>180 menit</b> per sesi. Jawaban boleh dikumpulkan kapan saja sebelum waktu habis.</p>
+ ${p.aktif?`<div class="notice">Ada sesi ${p.aktif.mode==='REMEDIAL'?'Remedial':'Ujian Utama'} yang masih berjalan. Tekan mulai untuk melanjutkan sesi tersebut.</div>`:''}
+ ${message?`<div class="notice danger">${escapeHTML(message)}</div>`:''}</section>
+ <div class="mode-cards"><section class="card mode-card"><div class="mode-symbol">Σ</div><h3>Ujian Utama</h3>
+ <p>Soal dari seluruh 12 Tujuan Pembelajaran (${state.public.jumlahSoal} butir). Hasilnya tersimpan sebagai nilai utama.</p>
+ ${finished?'<span class="pill green">Sudah pernah diselesaikan</span>':''}
+ <button id="mulaiUtama" class="button full" type="button">${finished?'Lihat hasil Ujian Utama':'Mulai Ujian Utama'}</button></section>
+ <section class="card mode-card"><div class="mode-symbol">√</div><h3>Remedial</h3>
+ <p>Pilih satu atau lebih TP yang ingin diulang. Soal yang muncul hanya sesuai TP terpilih. Nilai Ujian Utama tetap tersimpan.</p>
+ ${!finished?'<span class="pill orange">Selesaikan Ujian Utama terlebih dahulu</span>':''}
+ <button id="pilihRemedial" class="button secondary full" type="button" ${!finished&&!p.aktif?'disabled':''}>Pilih TP Remedial</button></section></div>
+ <section class="card tp-picker" id="tpPicker" hidden><div class="eyebrow">Remedial</div>
+ <h2 style="font-size:21px">Centang Tujuan Pembelajaran</h2><p class="sub">Tandai TP yang akan diulang. TP dengan nilai di bawah ${state.public.kktp} perlu mendapat perhatian.</p>
+ <div class="tp-grid" id="tpGrid">${tps.map(t=>{
+  const score=t.nilai==null?'—':scoreFmt(t.nilai),below=t.nilai!=null&&t.nilai<state.public.kktp;
+  return `<label class="tp-check"><input type="checkbox" value="${escapeHTML(t.kode)}" data-tp>
+  <span class="tp-check-text"><strong>${escapeHTML(t.kode)}</strong><small>${escapeHTML(t.tujuan)}</small></span>
+  <span class="tp-check-score" style="${below?'':'color:var(--muted)'}">${score}</span></label>`;
+ }).join('')}</div><div class="mode-actions"><button id="startRemedial" class="button" type="button">Mulai Remedial (0 TP)</button>
+ <button id="batalRemedial" class="button ghost" type="button">Batal</button></div></section>
+ <div class="mode-actions"><button id="kembaliIdentitas" type="button" class="button ghost">← Ubah identitas</button></div>
+ </main>`;
+ el('mulaiUtama').onclick=()=>mulaiMode('UTAMA',[]);
+ el('pilihRemedial').onclick=()=>{el('tpPicker').hidden=false;el('tpPicker').scrollIntoView({behavior:'smooth',block:'start'});};
+ el('batalRemedial').onclick=()=>{el('tpPicker').hidden=true;};
+ el('kembaliIdentitas').onclick=()=>{state.role='murid';loginPage();};
+ el('tpGrid').onchange=()=>{state.tpPilihan=Array.from(document.querySelectorAll('[data-tp]:checked')).map(t=>t.value);
+  el('startRemedial').textContent=`Mulai Remedial (${state.tpPilihan.length} TP)`;};
+ el('startRemedial').onclick=()=>{if(!state.tpPilihan.length){notify('Centang minimal satu TP.');return;}mulaiMode('REMEDIAL',state.tpPilihan);};
+ bindFullScreen();
+}
+async function mulaiMode(mode,tpDipilih){
+ const button=mode==='UTAMA'?el('mulaiUtama'):el('startRemedial');
+ if(button){button.disabled=true;button.textContent='Menyiapkan soal...';}
+ try{const r=await callServer('mulaiUjian',{...state.draft,mode,tpDipilih});useResponse(r);}
+ catch(e){showModePage(e.message);notify(e.message);}
+}
+function useResponse(response){
+ if(!response||!response.tipe)throw new Error('Respons server tidak valid.');
+ if(response.tipe==='selesai'){showResult(response.hasil);return;}
+ if(response.tipe!=='ujian')throw new Error('Jenis respons tidak dikenal.');
+ cleanup();const old=storageGet();state.session=response;state.token=response.token;
+ state.answers={...(response.jawaban||{})};state.flags={};state.current=0;state.submitting=false;
+ if(old&&old.token===response.token){Object.assign(state.answers,old.answers||{});state.flags=old.flags||{};state.current=Number.isInteger(old.current)?old.current:0;}
+ state.current=Math.max(0,Math.min(response.pertanyaan.length-1,state.current));
+ storageSet();showExam();window.scrollTo(0,0);
+ state.tick=setInterval(updateTimer,1000);state.periodic=setInterval(()=>saveProgress(),45000);updateTimer();
+}
+function examCounts(){
+ if(!state.session)return {total:0,answered:0,flagged:0,blank:0};
+ const total=state.session.pertanyaan.length,answered=state.session.pertanyaan.filter(q=>state.answers[q.id]).length,
+ flagged=state.session.pertanyaan.filter(q=>state.flags[q.id]).length;
+ return {total,answered,flagged,blank:total-answered};
+}
+function showExam(){
+ const s=state.session,type=s.mode==='REMEDIAL'?'Remedial':'Ujian Utama';
+ app.innerHTML=`${nav()}<div class="wrap exam-layout"><main class="exam-main">
+ <section class="card exam-banner"><div><div class="exam-name">${escapeHTML(s.nama)}</div>
+ <div class="exam-meta">Kelas ${escapeHTML(s.kelas)}</div><span class="exam-type">${type}${s.mode==='REMEDIAL'?' • '+s.tpDipilih.length+' TP':''}</span></div>
+ <div class="timer" id="timerBox"><div class="timer-label">Sisa waktu</div><div class="timer-digits" id="timerDigits" role="timer">--:--:--</div></div></section>
+ <section class="card question-card"><div id="questionArea"></div><div class="question-footer">
+ <button class="button secondary sm" id="flagButton" type="button">⚑ Tandai ragu</button>
+ <div class="group-buttons"><button class="button ghost sm" id="prevButton" type="button">← Sebelumnya</button>
+ <button class="button sm" id="nextButton" type="button">Berikutnya →</button></div></div></section></main>
+ <aside class="card sidebar" id="examSidebar" aria-label="Navigasi Soal">
+ <button type="button" class="sidebar-close" id="closeQuestionNav">✕ Tutup</button><h3 class="aside-title">Navigasi Soal</h3>
+ <p class="aside-subtitle">Pilih nomor untuk berpindah soal.</p>
+ <div class="aside-summary"><div class="mini-stat"><b id="countAnswered">0</b><span>Terjawab</span></div>
+ <div class="mini-stat"><b id="countBlank">0</b><span>Belum</span></div><div class="mini-stat"><b id="countFlagged">0</b><span>Ragu-ragu</span></div></div>
+ <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+ <div class="number-grid" id="numberGrid" style="margin-top:17px"></div>
+ <div class="legend"><span><i class="dot answered"></i>Terjawab</span><span><i class="dot flagged"></i>Ragu-ragu</span><span><i class="dot blank"></i>Belum dijawab</span></div>
+ <button class="button full" id="finishButton" type="button">Selesaikan Ujian</button>
+ <p class="save-label" id="saveStatus" role="status">Jawaban disimpan otomatis</p></aside></div>
+ <button class="sidebar-scrim" id="sidebarScrim" type="button" hidden></button>
+ <div class="mobile-nav"><span class="mobile-nav-summary"><b id="mobileAnsweredCount">0</b> / ${s.pertanyaan.length} terjawab</span>
+ <button class="button" id="openQuestionNav" type="button" aria-controls="examSidebar" aria-expanded="false">☷ Nomor Soal</button></div>
+ <div class="bottom-note">Kumpulkan kapan saja sebelum 3 jam; jika waktu habis, ujian otomatis diselesaikan.</div>`;
+ el('prevButton').onclick=()=>gotoQuestion(state.current-1);el('nextButton').onclick=()=>gotoQuestion(state.current+1);
+ el('flagButton').onclick=toggleFlag;el('finishButton').onclick=openModal;
+ el('openQuestionNav').onclick=openQuestionNav;el('closeQuestionNav').onclick=closeQuestionNav;el('sidebarScrim').onclick=closeQuestionNav;
+ el('numberGrid').onclick=e=>{const target=e.target.closest('[data-index]');if(target){gotoQuestion(Number(target.dataset.index));closeQuestionNav();}};
+ el('questionArea').onclick=e=>{const target=e.target.closest('[data-choice]');if(target)selectAnswer(target.dataset.choice);};
+ renderQuestion();renderNumberGrid();refreshCounters();bindFullScreen();
+}
+function openQuestionNav(){const p=el('examSidebar');if(!p||innerWidth>940)return;p.classList.add('is-open');el('sidebarScrim').hidden=false;el('openQuestionNav').setAttribute('aria-expanded','true');document.body.classList.add('cbt-nav-open');el('closeQuestionNav').focus();}
+function closeQuestionNav(){const p=el('examSidebar');if(!p)return;const was=p.classList.contains('is-open');p.classList.remove('is-open');el('sidebarScrim').hidden=true;document.body.classList.remove('cbt-nav-open');if(was){el('openQuestionNav').setAttribute('aria-expanded','false');el('openQuestionNav').focus();}}
+function renderQuestion(){
+ if(!state.session)return;const q=state.session.pertanyaan[state.current],ans=state.answers[q.id]||'',flagged=!!state.flags[q.id];
+ el('questionArea').innerHTML=`<div class="q-top"><div class="q-title">Soal ${q.nomor} <span style="color:var(--muted);font-weight:500">/ ${state.session.pertanyaan.length}</span></div>
+ <span class="q-chip">${escapeHTML(q.tp)}</span></div><p class="q-text">${escapeHTML(q.teks)}</p>
+ ${q.diagram?renderDiagram(q):''}
+ <div class="option-grid" role="group" aria-label="Pilihan jawaban">${q.opsi.map(o=>`<button type="button" class="option${ans===o.huruf?' selected':''}" data-choice="${escapeHTML(o.huruf)}" aria-pressed="${ans===o.huruf}">
+ <span class="option-key">${escapeHTML(o.huruf)}</span><span class="option-text">${escapeHTML(o.teks)}</span></button>`).join('')}</div>`;
+ el('flagButton').textContent=flagged?'✓ Hapus tanda ragu':'⚑ Tandai ragu';el('flagButton').className='button sm '+(flagged?'soft-red':'secondary');
+ el('prevButton').disabled=state.current===0;el('nextButton').disabled=state.current===state.session.pertanyaan.length-1;
+}
+function renderNumberGrid(){if(!state.session)return;el('numberGrid').innerHTML=state.session.pertanyaan.map((q,i)=>{
+ const classes=['number'];if(state.answers[q.id])classes.push('answered');if(state.flags[q.id])classes.push('flagged');if(i===state.current)classes.push('active');
+ return `<button type="button" class="${classes.join(' ')}" data-index="${i}" aria-label="Soal ${i+1}" ${i===state.current?'aria-current="step"':''}>${i+1}</button>`;
+}).join('');}
+function refreshCounters(){if(!state.session)return;const c=examCounts();el('countAnswered').textContent=c.answered;el('countBlank').textContent=c.blank;el('countFlagged').textContent=c.flagged;el('mobileAnsweredCount').textContent=c.answered;el('progressFill').style.width=(100*c.answered/Math.max(c.total,1))+'%';}
+function gotoQuestion(index){if(!state.session||state.submitting||index<0||index>=state.session.pertanyaan.length)return;state.current=index;renderQuestion();renderNumberGrid();storageSet();window.scrollTo({top:0,behavior:'smooth'});}
+function selectAnswer(letter){if(!state.session||state.submitting||!['A','B','C','D'].includes(letter))return;const q=state.session.pertanyaan[state.current];state.answers[q.id]=letter;renderQuestion();renderNumberGrid();refreshCounters();storageSet();scheduleSave();}
+function toggleFlag(){if(!state.session||state.submitting)return;const q=state.session.pertanyaan[state.current];if(state.flags[q.id])delete state.flags[q.id];else state.flags[q.id]=true;renderQuestion();renderNumberGrid();refreshCounters();storageSet();}
+function scheduleSave(){clearTimeout(state.saveTimer);state.saveTimer=setTimeout(saveProgress,4000);showSaveStatus('Belum disinkronkan...',false);}
+function showSaveStatus(text,error){const d=el('saveStatus');if(d){d.textContent=text;d.classList.toggle('error',!!error);}}
+async function saveProgress(){
+ if(!state.session||state.submitting)return;clearTimeout(state.saveTimer);
+ if(state.saving){state.needSave=true;return;}state.saving=true;state.needSave=false;
+ const snapshot={...state.answers};showSaveStatus('Menyimpan jawaban...',false);
+ try{const r=await callServer('simpanProgres',state.token,snapshot);if(r.tipe==='selesai'){showResult(r.hasil);return;}
+  if(JSON.stringify(snapshot)!==JSON.stringify(state.answers))state.needSave=true;
+  showSaveStatus('✓ Jawaban tersimpan',false);
+ }catch(e){if(state.session){state.needSave=true;showSaveStatus('Gagal menyimpan. Akan dicoba lagi.',true);}}
+ finally{state.saving=false;if(state.needSave&&state.session&&!state.submitting){state.needSave=false;clearTimeout(state.saveTimer);state.saveTimer=setTimeout(saveProgress,4000);}}
+}
+function updateTimer(){
+ if(!state.session||state.submitting)return;
+ const left=Math.max(0,new Date(state.session.deadline).getTime()-Date.now()),sec=Math.ceil(left/1000),
+ hh=Math.floor(sec/3600),mm=Math.floor(sec%3600/60),ss=sec%60;
+ if(el('timerDigits'))el('timerDigits').textContent=[hh,mm,ss].map(x=>String(x).padStart(2,'0')).join(':');
+ if(el('timerBox'))el('timerBox').classList.toggle('danger',left<=600000);
+ if(left<=0)finishExam(true);
+}
+function openModal(){if(!state.session||state.submitting)return;closeQuestionNav();const c=examCounts();
+ el('modalText').innerHTML=`Anda sudah menjawab <b>${c.answered} dari ${c.total} soal</b>. ${c.blank?`Masih ada <b>${c.blank} soal kosong</b>.`:'Semua soal telah dijawab.'}
+ <br><br>Ujian ${state.session.mode==='REMEDIAL'?'Remedial':'Utama'} dapat diselesaikan sekarang tanpa menunggu waktu habis. Setelah dikumpulkan jawaban tidak dapat diedit.`;
+ modal.hidden=false;el('modalConfirm').focus();}
+function closeModal(){modal.hidden=true;}
+async function finishExam(auto=false){
+ if(!state.session||state.submitting)return;closeModal();state.submitting=true;clearTimeout(state.saveTimer);clearInterval(state.tick);clearInterval(state.periodic);
+ const btn=el('finishButton');if(btn){btn.disabled=true;btn.textContent='Mengumpulkan...';}
+ showSaveStatus(auto?'Waktu habis. Menyelesaikan ujian...':'Mengirim jawaban...',false);
+ try{const r=await callServer('akhiriUjian',state.token,{...state.answers});if(r.tipe!=='selesai')throw new Error('Belum ada hasil final dari GAS.');showResult(r.hasil);}
+ catch(e){state.submitting=false;if(btn){btn.disabled=false;btn.textContent='Coba Kumpulkan Lagi';}
+  showSaveStatus('Gagal mengumpulkan. Periksa internet dan coba lagi.',true);notify(e.message);}
+}
+function localTime(s){const d=new Date(s);return Number.isNaN(d.getTime())?'-':d.toLocaleString('id-ID',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});}
+function scoreFmt(n){return Number(n||0).toLocaleString('id-ID',{maximumFractionDigits:2});}
+function showResult(result){
+ cleanup();closeModal();state.session=null;state.submitting=false;storageClear();state.token='';state.answers={};state.flags={};
+ if(result&&result.nama&&result.kelas)state.draft={...state.draft,nama:result.nama,kelas:result.kelas};
+ const visible=result&&typeof result.nilai==='number',name=escapeHTML(result.nama||'Murid'),mode=result.mode==='REMEDIAL'?'Remedial':'Ujian Utama';
+ const scored=visible?`<section class="card result-card"><div class="score-layout">
+ <div class="score-circle" style="--score:${Math.max(0,Math.min(100,result.nilai))}%"><div class="score-inner"><strong>${scoreFmt(result.nilai)}</strong><span>Nilai / 100</span></div></div>
+ <div><div class="result-name">${name}</div><div class="result-meta">Kelas ${escapeHTML(result.kelas)} • ${mode}</div>
+ <div style="margin-top:13px"><span class="pill ${result.remedial&&result.remedial.length?'orange':'green'}">${escapeHTML(result.status)}</span></div>
+ <div class="score-metrics"><div class="score-metric"><b>${result.benar}</b><span>Benar</span></div>
+ <div class="score-metric"><b>${result.dijawab}/${result.jumlahSoal}</b><span>Terjawab</span></div>
+ <div class="score-metric"><b>${result.kktp}</b><span>KKTP per TP</span></div></div></div></div></section>
+ <section class="card tp-panel"><div class="eyebrow">Pencapaian kompetensi • ${mode}</div><h2 style="font-size:21px">Hasil per Tujuan Pembelajaran</h2>
+ <p class="sub">Setiap TP dinilai pada skala 0–100 berdasarkan bobot soal.</p>
+ <div style="overflow-x:auto"><table class="tp-list"><thead><tr><th>TP</th><th>Tujuan Pembelajaran</th><th>Nilai</th><th>Status</th></tr></thead><tbody>
+ ${(result.tps||[]).map(t=>`<tr><td class="tp-code">${escapeHTML(t.kode)}</td><td class="tp-goal">${escapeHTML(t.tujuan)}</td>
+ <td><b>${scoreFmt(t.nilai)}</b></td><td><span class="pill ${t.tuntas?'green':'orange'}">${t.tuntas?'Tuntas':'Perlu remedial'}</span></td></tr>`).join('')}</tbody></table></div>
+ ${result.mode==='REMEDIAL'?`<p class="help">Nilai Remedial hanya untuk TP yang diulang, tidak mengganti nilai Ujian Utama.</p>`:''}
+ </section>`:
+ `<div class="card result-card"><div class="result-name">${name}</div><p>${escapeHTML(result.keterangan||'Jawaban diterima.')}</p></div>`;
+ app.innerHTML=`${nav()}<main class="wrap result"><div class="result-intro"><div class="checkmark">✓</div>
+ <h1>${mode} telah diselesaikan</h1><p>Selesai: ${escapeHTML(localTime(result.selesai))}</p></div>${scored}
+ <div class="result-footer"><button class="button secondary" id="printResult">Cetak / Simpan Hasil</button>
+ <button class="button" id="backLogin">Kembali ke Beranda</button>
+ <button class="button secondary" id="goRemedial">Pilih Remedial</button></div></main>`;
+ el('printResult').onclick=()=>window.print();el('backLogin').onclick=()=>{state.role='murid';loginPage();};
+ el('goRemedial').onclick=async()=>{
+  if(!state.draft.nama)state.draft={nama:result.nama||'',kelas:result.kelas||'IX D',kodeAkses:''};
+  app.innerHTML=`${nav()}<div class="loading"><div><div class="spinner"></div>Memuat pilihan TP...</div></div>`;
+  bindFullScreen();
+  try{state.profil=await callServer('profilMurid',state.draft);showModePage();el('pilihRemedial').click();}
+  catch(e){loginPage(e.message);}
+ };
+ bindFullScreen();window.scrollTo(0,0);
+}
+/** Dashboard guru: akun per kelas, ringkasan mode, detail per TP dan riwayat. */
+async function bukaDashboardGuru(){state.guruData=await callServer('ringkasanGuru',state.guruToken);renderDashboardGuru();}
+function daftarAkunGabungan(){
+ const result=new Map(),d=state.guruData||{daftar:[],akun:[]};
+ function key(n,k){return String(k||'').toUpperCase()+'|'+String(n||'').trim().toLowerCase().replace(/\s+/g,' ');}
+ (d.akun||[]).forEach(a=>{
+  const id=key(a.nama,a.kelas);result.set(id,{nama:a.nama,kelas:a.kelas,status:a.status,utama:null,remedial:null,semua:[]});
+ });
+ (d.daftar||[]).slice().reverse().forEach(s=>{
+  const id=key(s.nama,s.kelas);
+  if(!result.has(id))result.set(id,{nama:s.nama,kelas:s.kelas,status:'AKTIF',utama:null,remedial:null,semua:[]});
+  const x=result.get(id);x.semua.push(s);
+  if(s.status==='SELESAI'){if(s.mode==='REMEDIAL')x.remedial=s;else x.utama=s;}
+ });
+ return Array.from(result.values()).sort((a,b)=>a.kelas.localeCompare(b.kelas)||a.nama.localeCompare(b.nama,'id'));
+}
+function renderDashboardGuru(){
+ const d=state.guruData||{total:0,selesai:0,aktif:0,rataRata:null,daftar:[],akun:[]};
+ const semua=daftarAkunGabungan(),count=(cls)=>semua.filter(a=>a.kelas===cls).length;
+ app.innerHTML=`${nav()}<main class="wrap guru-dashboard">
+ <div class="guru-heading"><div><div class="eyebrow">Panel Guru • ∑ π √</div><h2>Dashboard Hasil Matematika</h2>
+ <p class="sub" style="margin-bottom:0">${escapeHTML(state.public.namaGuru||'Rima Fitriyani, M.Pd.')} • Pemantauan Ujian Utama dan Remedial per TP</p></div>
+ <button class="button ghost" type="button" id="keluarGuru">Keluar Akun</button></div>
+ <div class="guru-stats"><div class="card guru-stat"><span>Jumlah sesi</span><strong>${d.total}</strong></div>
+ <div class="card guru-stat"><span>Ujian selesai</span><strong>${d.selesai}</strong></div>
+ <div class="card guru-stat"><span>Murid IX D</span><strong>${count('IX D')}</strong></div>
+ <div class="card guru-stat"><span>Murid IX E</span><strong>${count('IX E')}</strong></div></div>
+ <section class="card guru-table-card"><div class="guru-toolbar"><div><h3>Hasil dan Akun Murid</h3>
+ <p class="sub" style="margin:0">Perbandingan nilai utama dan remedial berdasarkan kelas.</p></div>
+ <div class="guru-actions"><button class="button secondary sm" type="button" id="segarkanGuru">↻ Segarkan</button>
+ <a class="button sm" href="${escapeHTML(d.spreadsheetUrl||'#')}" target="_blank" rel="noopener noreferrer">Buka Google Sheets</a></div></div>
+ <div class="guru-filters"><label>Filter kelas<select id="filterKelas"><option value="SEMUA">Semua kelas</option>
+ <option value="IX D" ${state.filterKelas==='IX D'?'selected':''}>IX D</option><option value="IX E" ${state.filterKelas==='IX E'?'selected':''}>IX E</option></select></label>
+ <label>Jenis ujian<select id="filterMode"><option value="SEMUA">Semua jenis</option>
+ <option value="UTAMA" ${state.filterMode==='UTAMA'?'selected':''}>Ujian Utama</option>
+ <option value="REMEDIAL" ${state.filterMode==='REMEDIAL'?'selected':''}>Remedial</option></select></label></div>
+ <div class="gurudata-scroll-tip">Geser tabel ke samping untuk melihat seluruh kolom →</div>
+ <div class="table-scroll" role="region" tabindex="0" aria-label="Rekap dan akun murid">
+ <table class="guru-table"><thead><tr><th>No.</th><th>Nama Murid</th><th>Kelas</th><th>Status Akun</th>
+ <th>Ujian Utama</th><th>Remedial terbaru*</th><th>Jumlah sesi</th><th>Perbandingan TP</th><th>Akun Murid</th></tr></thead>
+ <tbody id="guruRows"></tbody></table></div>
+ <p class="help">*Nilai Remedial hanya untuk TP terpilih. Untuk membandingkan hasil secara tepat, gunakan tombol <b>Bandingkan TP</b> pada setiap murid.</p>
+ <p class="help">Menu Hapus Akun menonaktifkan akses dan membatalkan ujian yang sedang aktif, tanpa menghapus arsip nilai di Google Sheets.</p>
+ ${d.dibatasi?'<p class="help">Ringkasan sesi dibatasi 140 data terbaru. Riwayat lengkap per murid dapat dibuka melalui Bandingkan TP.</p>':''}
+ </section></main>`;
+ function populate(){
+  const filtered=semua.filter(a=>(state.filterKelas==='SEMUA'||a.kelas===state.filterKelas)&&
+    (state.filterMode==='SEMUA'||a.semua.some(s=>s.mode===state.filterMode)));
+  el('guruRows').innerHTML=filtered.map((a,i)=>{
+   const utama=a.utama&&a.utama.nilai!==null?scoreFmt(a.utama.nilai):'—';
+   const rem=a.remedial&&a.remedial.nilai!==null?scoreFmt(a.remedial.nilai):'—';
+   return `<tr><td>${i+1}</td><td><b>${escapeHTML(a.nama)}</b></td><td>${escapeHTML(a.kelas)}</td>
+   <td><span class="pill ${a.status==='NONAKTIF'?'orange':'green'}">${a.status==='NONAKTIF'?'Nonaktif':'Aktif'}</span></td>
+   <td><b>${utama}</b></td><td><b>${rem}</b></td><td>${a.semua.length}</td>
+   <td><button type="button" class="button secondary sm" data-detail="${i}">Bandingkan TP</button></td>
+   <td><button type="button" class="button ${a.status==='NONAKTIF'?'secondary':'soft-red'} sm" data-account="${i}">${a.status==='NONAKTIF'?'Aktifkan':'Hapus Akun'}</button></td></tr>`;
+  }).join('')||'<tr><td colspan="9" class="empty-row">Belum ada akun pada filter ini.</td></tr>';
+  // Indeks tombol mengikuti array hasil filter saat ini.
+  el('guruRows').onclick=async ev=>{
+   const det=ev.target.closest('[data-detail]'),act=ev.target.closest('[data-account]');
+   if(det){const a=filtered[Number(det.dataset.detail)];if(a)await lihatPerbandingan(a);}
+   if(act){const a=filtered[Number(act.dataset.account)];if(a)await gantiStatusAkun(a);}
   };
-  el('keluarGuru').onclick = async () => {
-    const token = state.guruToken;
-    state.guruToken = ''; state.guruName = ''; state.guruData = null;
-    guruStorageClear();
-    state.role = 'guru'; loginPage();
-    try { await callServer('keluarGuru', token); } catch (_) {}
-  };
+ }
+ el('filterKelas').onchange=e=>{state.filterKelas=e.target.value;populate();};
+ el('filterMode').onchange=e=>{state.filterMode=e.target.value;populate();};
+ el('segarkanGuru').onclick=async()=>{el('segarkanGuru').disabled=true;try{await bukaDashboardGuru();}catch(e){notify(e.message);if(el('segarkanGuru'))el('segarkanGuru').disabled=false;}};
+ el('keluarGuru').onclick=async()=>{const t=state.guruToken;state.guruToken='';guruStorageClear();state.role='guru';loginPage();try{await callServer('keluarGuru',t);}catch(e){}};
+ populate();bindFullScreen();window.scrollTo(0,0);
 }
-function dataTotalSoal() { return state.public.jumlahSoal || 85; }
-function useResponse(response) {
-  if (!response || !response.tipe) throw new Error('Respons server tidak dapat dibaca.');
-  if (response.tipe === 'selesai') { showResult(response.hasil); return; }
-  if (response.tipe !== 'ujian') throw new Error('Jenis respons tidak dikenal.');
-  cleanup();
-  const previous = storageGet();
-  state.session = response;
-  state.token = response.token;
-  state.answers = Object.assign({}, response.jawaban || {});
-  state.flags = {};
-  state.current = 0;
-  state.started = true;
-  if (previous && previous.token === response.token) {
-    Object.assign(state.answers, previous.answers || {});
-    state.flags = previous.flags || {};
-    state.current = Number.isInteger(previous.current) ? previous.current : 0;
-  }
-  state.current = Math.max(0, Math.min(response.pertanyaan.length - 1, state.current));
-  storageSet();
-  showExam();
-  window.scrollTo(0, 0);
-  state.tick = setInterval(updateTimer, 1000);
-  state.periodic = setInterval(() => saveProgress(), 45000);
-  updateTimer();
-}
-function examCounts() {
-  const total = state.session.pertanyaan.length;
-  const answered = state.session.pertanyaan.reduce((n,q) => n + (state.answers[q.id] ? 1 : 0), 0);
-  const flagged = state.session.pertanyaan.reduce((n,q) => n + (state.flags[q.id] ? 1 : 0), 0);
-  return { total, answered, flagged, blank: total - answered };
-}
-function showExam() {
-  const s = state.session;
-  app.innerHTML = `${nav()}<div class="wrap exam-layout">
-    <main class="exam-main">
-      <section class="card exam-banner">
-        <div><div class="exam-name">${escapeHTML(s.nama)}</div>
-          <div class="exam-meta">Kelas ${escapeHTML(s.kelas)}</div></div>
-        <div class="timer" id="timerBox"><div class="timer-label">Sisa waktu</div>
-          <div class="timer-digits" id="timerDigits" role="timer" aria-live="off">--:--:--</div></div>
-      </section>
-      <section class="card question-card" aria-label="Soal ujian"><div id="questionArea"></div>
-        <div class="question-footer">
-          <button class="button secondary sm" type="button" id="flagButton">⚑ Tandai ragu</button>
-          <div class="group-buttons"><button class="button ghost sm" id="prevButton" type="button">← Sebelumnya</button>
-            <button class="button sm" id="nextButton" type="button">Berikutnya →</button></div>
-        </div>
-      </section>
-    </main>
-    <aside class="card sidebar" id="examSidebar" aria-label="Navigasi Soal"><button type="button" class="sidebar-close" id="closeQuestionNav">✕ Tutup</button>
-      <h3 class="aside-title">Navigasi Soal</h3>
-      <p class="aside-subtitle">Pilih nomor untuk berpindah soal.</p>
-      <div class="aside-summary"><div class="mini-stat"><b id="countAnswered">0</b><span>Terjawab</span></div>
-        <div class="mini-stat"><b id="countBlank">0</b><span>Belum</span></div>
-        <div class="mini-stat"><b id="countFlagged">0</b><span>Ragu-ragu</span></div></div>
-      <div class="progress-track" aria-label="Progres jawaban"><div id="progressFill" class="progress-fill"></div></div>
-      <div class="number-grid" id="numberGrid" style="margin-top:17px" aria-label="Pilih nomor soal"></div>
-      <div class="legend"><span><i class="dot answered"></i>Terjawab</span>
-        <span><i class="dot flagged"></i>Ragu-ragu</span><span><i class="dot blank"></i>Belum dijawab</span></div>
-      <button class="button full" id="finishButton" type="button">Kumpulkan Jawaban</button>
-      <p class="save-label" id="saveStatus" role="status" aria-live="polite">Jawaban disimpan otomatis</p>
-    </aside>
-  </div><button type="button" class="sidebar-scrim" id="sidebarScrim" aria-label="Tutup navigasi soal" hidden></button>
-  <div class="mobile-nav" id="mobileExamNav"><span class="mobile-nav-summary"><b id="mobileAnsweredCount">0</b> / ${s.pertanyaan.length} terjawab</span>
-    <button class="button" type="button" id="openQuestionNav" aria-expanded="false" aria-controls="examSidebar">☷ Nomor Soal</button></div>
-  <div class="bottom-note">Gunakan pilihan A–D untuk setiap soal. Waktu ujian tetap berjalan saat halaman ditutup.</div>`;
-  el('prevButton').addEventListener('click', () => gotoQuestion(state.current - 1));
-  el('nextButton').addEventListener('click', () => gotoQuestion(state.current + 1));
-  el('flagButton').addEventListener('click', toggleFlag);
-  el('finishButton').addEventListener('click', openModal);
-  el('openQuestionNav').addEventListener('click', openQuestionNav);
-  el('closeQuestionNav').addEventListener('click', closeQuestionNav);
-  el('sidebarScrim').addEventListener('click', closeQuestionNav);
-  el('numberGrid').addEventListener('click', ev => {
-    const item = ev.target.closest('[data-index]');
-    if (item) { gotoQuestion(Number(item.dataset.index)); closeQuestionNav(); }
-  });
-  el('questionArea').addEventListener('click', ev => {
-    const item = ev.target.closest('[data-choice]');
-    if (item) selectAnswer(item.dataset.choice);
-  });
-  renderQuestion(); renderNumberGrid(); refreshCounters();
-}
-function openQuestionNav() {
-  const panel = el('examSidebar');
-  if (!panel || window.innerWidth > 940) return;
-  panel.classList.add('is-open');
-  el('sidebarScrim').hidden = false;
-  el('openQuestionNav').setAttribute('aria-expanded','true');
-  document.body.classList.add('cbt-nav-open');
-  el('closeQuestionNav').focus();
-}
-function closeQuestionNav() {
-  const panel = el('examSidebar');
-  if (!panel) return;
-  const open = panel.classList.contains('is-open');
-  panel.classList.remove('is-open');
-  const scrim = el('sidebarScrim'); if (scrim) scrim.hidden = true;
-  document.body.classList.remove('cbt-nav-open');
-  const button = el('openQuestionNav');
-  if (button) { button.setAttribute('aria-expanded','false'); if (open) button.focus(); }
-}
-function renderQuestion() {
-  if (!state.session) return;
-  const q = state.session.pertanyaan[state.current];
-  const ans = state.answers[q.id] || '';
-  el('questionArea').innerHTML = `<div class="q-top"><div class="q-title">Soal ${q.nomor} <span style="color:var(--muted);font-weight:500">/ ${state.session.pertanyaan.length}</span></div>
-    <span class="q-chip">${escapeHTML(q.tp)}</span></div>
-    <p class="q-text">${escapeHTML(q.teks)}</p>
-    <div class="option-grid" role="group" aria-label="Pilihan jawaban">
-      ${q.opsi.map(o => `<button type="button" class="option${ans===o.huruf ? ' selected' : ''}" data-choice="${o.huruf}" aria-pressed="${ans===o.huruf}">
-        <span class="option-key">${o.huruf}</span><span class="option-text">${escapeHTML(o.teks)}</span></button>`).join('')}
-    </div>`;
-  const flagged = !!state.flags[q.id];
-  el('flagButton').textContent = flagged ? '✓ Hapus tanda ragu' : '⚑ Tandai ragu';
-  el('flagButton').className = 'button sm ' + (flagged ? 'soft-red' : 'secondary');
-  el('prevButton').disabled = state.current === 0;
-  el('nextButton').disabled = state.current === state.session.pertanyaan.length-1;
-}
-function renderNumberGrid() {
-  if (!state.session) return;
-  el('numberGrid').innerHTML = state.session.pertanyaan.map((q, idx) => {
-    const classes = ['number'];
-    if (state.answers[q.id]) classes.push('answered');
-    if (state.flags[q.id]) classes.push('flagged');
-    if (idx === state.current) classes.push('active');
-    return `<button type="button" data-index="${idx}" class="${classes.join(' ')}" aria-label="Soal ${idx+1}${state.answers[q.id] ? ', terjawab' : ', belum dijawab'}${state.flags[q.id] ? ', ditandai ragu' : ''}" ${idx===state.current ? 'aria-current="step"' : ''}>${idx+1}</button>`;
+async function lihatPerbandingan(murid){
+ const loading=document.createElement('div');loading.className='toast';loading.textContent='Memuat detail nilai TP...';document.body.appendChild(loading);
+ try{
+  const d=await callServer('detailMuridGuru',state.guruToken,murid.nama,murid.kelas);
+  if(el('detailOverlay'))el('detailOverlay').remove();
+  const overlay=document.createElement('div');overlay.id='detailOverlay';overlay.className='modal';overlay.hidden=false;
+  const rows=(d.perbandingan||[]).map(t=>{
+   const diff=t.selisih==null?'—':`${t.selisih>0?'+':''}${scoreFmt(t.selisih)}`;
+   return `<tr><td class="tp-code">${escapeHTML(t.kode)}</td><td class="tp-goal">${escapeHTML(t.tujuan)}</td>
+   <td><b>${t.utama==null?'—':scoreFmt(t.utama)}</b></td><td><b>${t.remedial==null?'—':scoreFmt(t.remedial)}</b></td>
+   <td class="${t.selisih==null?'':t.selisih>=0?'diff-plus':'diff-minus'}">${diff}</td></tr>`;
   }).join('');
+  const history=(d.riwayat||[]).map(x=>`<tr><td>${escapeHTML(x.mode==='REMEDIAL'?'Remedial':'Utama')}</td>
+   <td>${escapeHTML(localTime(x.selesai))}</td><td>${scoreFmt(x.nilai)}</td>
+   <td style="white-space:normal;min-width:150px">${escapeHTML((x.tpDipilih||[]).join(', '))}</td></tr>`).join('');
+  overlay.innerHTML=`<div class="modal-box detail-modal guru-detail"><div class="eyebrow">Perbandingan hasil per TP</div>
+   <h2>${escapeHTML(d.nama)}</h2><p class="sub">Kelas ${escapeHTML(d.kelas)} • Nilai utama tetap utuh, remedial ditampilkan terpisah.</p>
+   <div class="table-scroll"><table class="tp-list"><thead><tr><th>TP</th><th>Tujuan Pembelajaran</th><th>Ujian Utama</th><th>Remedial terakhir</th><th>Selisih</th></tr></thead>
+   <tbody>${rows}</tbody></table></div><p class="help">Setiap TP dinilai pada skala 0–100 berdasarkan bobot soal.</p>
+   <h3 style="margin:20px 0 8px">Riwayat Ujian</h3><div class="table-scroll"><table class="guru-table"><thead>
+   <tr><th>Jenis</th><th>Selesai</th><th>Nilai</th><th>TP yang diuji</th></tr></thead>
+   <tbody>${history||'<tr><td colspan="4">Belum ada hasil.</td></tr>'}</tbody></table></div>
+   <div class="modal-actions"><button class="button" id="detailClose" type="button">Tutup</button></div></div>`;
+  document.body.appendChild(overlay);const close=()=>overlay.remove();el('detailClose').onclick=close;
+  overlay.onclick=e=>{if(e.target===overlay)close();};
+ }catch(e){notify(e.message);}finally{loading.remove();}
 }
-function refreshCounters() {
-  if (!state.session) return;
-  const c = examCounts();
-  el('countAnswered').textContent = c.answered;
-  const m = el('mobileAnsweredCount'); if (m) m.textContent = c.answered;
-  el('countBlank').textContent = c.blank;
-  el('countFlagged').textContent = c.flagged;
-  el('progressFill').style.width = (100 * c.answered / c.total) + '%';
+async function gantiStatusAkun(murid){
+ const isInactive=murid.status==='NONAKTIF';
+ const text=isInactive?`Aktifkan kembali akun ${murid.nama} (${murid.kelas})?`:
+ `Hapus/nonaktifkan akun ${murid.nama} (${murid.kelas})?\n\nSesi yang masih aktif akan dibatalkan. Riwayat nilai dan rekap tetap tersimpan.`;
+ if(!window.confirm(text))return;
+ const action=isInactive?'aktifkanAkunMurid':'hapusAkunMurid';
+ try{const out=await callServer(action,state.guruToken,murid.nama,murid.kelas);
+  notify(isInactive?'Akun murid diaktifkan kembali.':(out.pesan||'Akun murid dinonaktifkan.'));
+  await bukaDashboardGuru();
+ }catch(e){notify(e.message);}
 }
-function gotoQuestion(index) {
-  if (!state.session || state.submitting || index < 0 || index >= state.session.pertanyaan.length) return;
-  state.current = index; renderQuestion(); renderNumberGrid(); storageSet();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+/** Diagram vektor terukur untuk soal yang membutuhkan visual; tidak memakai gambar eksternal. */
+function renderDiagram(q){
+ const id=q.id;
+ const L=(x,y,t)=>`<text class="label" x="${x}" y="${y}">${t}</text>`;
+ const P=d=>`<path class="stroke" d="${d}"/>`;
+ const D=d=>`<path class="dash" d="${d}"/>`;
+ const rect=(x,y,w,h,cl='soft')=>`<rect class="${cl}" x="${x}" y="${y}" width="${w}" height="${h}" rx="2"/>`;
+ const circle=(cx,cy,r,cl='stroke')=>`<circle class="${cl}" cx="${cx}" cy="${cy}" r="${r}"/>`;
+ let shapes='',caption='Ilustrasi soal (tidak dalam skala sebenarnya).';
+ switch(q.diagram){
+ case 'BALOK_LABEL':
+  shapes=P('M80 188 L233 188 L303 142 L149 142 Z M80 82 L233 82 L303 38 L149 38 Z M80 82 L80 188 M233 82 L233 188 M303 38 L303 142')+
+   D('M149 38 V142 M80 188 L149 142')+
+   L(63,202,'A')+L(235,207,'B')+L(310,154,'C')+L(145,159,'D')+L(63,77,'E')+L(236,77,'F')+L(310,36,'G')+L(141,34,'H');
+  caption='Balok ABCD.EFGH (E tepat di atas A, F di atas B, dan seterusnya).';break;
+ case 'NET_KUBUS':
+  for(let i=0;i<4;i++)shapes+=rect(118+i*51,103,50,50,'fill')+L(134+i*51,134,String(i+1));
+  shapes+=rect(169,52,50,50,'fill')+L(185,84,'5');
+  shapes+=rect(169,154,50,50,'fill')+L(185,185,'6');
+  caption='Contoh susunan enam persegi berpola 1–4–1.';break;
+ case 'NET_DERET':
+  for(let i=0;i<4;i++)shapes+=rect(90+i*64,106,62,62,'fill')+L(115+i*64,143,String(i+1));
+  caption='Deret empat persegi pada bagian selimut jaring-jaring kubus.';break;
+ case 'PRISMA_SEGITIGA':
+  shapes=P('M82 184 L200 184 L82 81 Z M82 81 L214 43 L333 145 L200 184 M82 184 L214 145 L333 145 M214 43 L214 145')+
+   D('M214 145 L82 184')+L(122,201,'8 cm')+L(48,136,'6 cm')+L(128,111,'10 cm')+L(257,78,'15 cm');
+  caption='Prisma segitiga siku-siku: sisi alas 6, 8, 10 cm dan panjang prisma 15 cm.';break;
+ case 'LIMAS':
+  shapes=P('M85 163 L236 171 L319 131 L176 119 Z M203 32 L85 163 M203 32 L236 171 M203 32 L319 131')+
+   D('M203 32 L176 119 M203 32 L203 149')+L(130,195,'12 cm')+L(251,153,'12 cm')+
+   L(213,108,'8 cm')+(id===23?L(265,76,'10 cm'):'');
+  caption=id===23?'Limas persegi: alas 12 × 12 cm, tinggi 8 cm, tinggi segitiga tegak 10 cm.':'Limas beralas persegi 12 × 12 cm dan tinggi limas 8 cm.';break;
+ case 'GUDANG':
+  shapes=P('M87 112 L194 47 L293 104 L293 198 L87 198 Z M87 112 L87 198 M87 112 L293 104 M194 47 L333 17 L417 81 L293 104 M333 17 L333 126 M293 198 L417 167 L417 81 M293 104 L417 81')+
+   L(124,222,'6 m')+L(336,190,'10 m')+L(57,161,'3 m')+L(217,70,'4 m');
+  caption='Balok berukuran 6 × 10 × 3 m dengan atap prisma segitiga setinggi 4 m.';break;
+ case 'LINGKARAN_DIAMETER':
+  shapes=circle(218,132,95,'soft')+P('M123 132 H313')+circle(218,132,3,'fill')+L(115,151,'A')+L(209,120,'O')+L(314,151,'B');
+  caption='Diameter AB melalui pusat O.';break;
+ case 'JURING':
+ case 'JURING_60': {
+  const ang=q.diagram==='JURING_60'?60:85, centerX=215,centerY=163,r=102;
+  const tx=centerX+r*Math.cos(-ang*Math.PI/180),ty=centerY+r*Math.sin(-ang*Math.PI/180);
+  shapes=circle(centerX,centerY,r,'dash')+
+   `<path class="fill" d="M${centerX} ${centerY} L${centerX+r} ${centerY} A${r} ${r} 0 0 0 ${tx.toFixed(1)} ${ty.toFixed(1)} Z"/>`+
+   L(198,184,'O')+L(315,181,'A')+L(tx-7,ty-10,'B')+L(257,132,ang+'°');
+  caption=q.diagram==='JURING_60'?'Juring dengan sudut pusat 60° dan jari-jari 21 m.':'Daerah juring OAB diarsir.';break;}
+ case 'TEMBERENG':
+ case 'TEMBERENG_90': {
+  const ang=q.diagram==='TEMBERENG_90'?90:100,r=96,cx=215,cy=168;
+  const x1=cx+r,y1=cy,x2=cx+r*Math.cos(-ang*Math.PI/180),y2=cy+r*Math.sin(-ang*Math.PI/180);
+  shapes=circle(cx,cy,r,'soft')+
+   `<path d="M${x1} ${y1} A${r} ${r} 0 0 0 ${x2.toFixed(1)} ${y2.toFixed(1)} Z" fill="#c5a6fb" stroke="#6d28d9" stroke-width="2"/>`+
+   P(`M${cx} ${cy} L${x1} ${y1} M${cx} ${cy} L${x2.toFixed(1)} ${y2.toFixed(1)}`)+
+   L(194,189,'O')+L(x1+4,y1,'A')+L(x2-4,y2-7,'B')+
+   (q.diagram==='TEMBERENG_90'?L(251,129,'90°')+L(130,96,'r = 14 cm'):'');
+  caption=q.diagram==='TEMBERENG_90'?'Daerah tembereng ungu; juring pusat 90° dan jari-jari 14 cm.':'Daerah tembereng diarsir di antara tali busur AB dan busur AB.';break;}
+ case 'APOTEMA':
+  shapes=circle(216,131,97,'soft')+P('M135 178 L297 178 M216 131 L216 178')+
+   `<path d="M216 166 h12 v12" fill="none" stroke="#6d28d9" stroke-width="2"/>`+
+   L(204,121,'O')+L(223,168,'P')+L(129,194,'A')+L(300,194,'B');
+  caption='OP tegak lurus tali busur AB (apotema).';break;
+ case 'SETENGAH_LINGKARAN':
+  shapes=`<path class="fill" d="M115 162 A100 100 0 0 1 315 162 L115 162 Z"/>`+
+   P('M115 162 H315')+L(173,185,'14 m')+L(162,55,'Bagian lengkung');
+  caption='Setengah lingkaran, diameter 14 m. Keliling mencakup garis diameter.';break;
+ case 'CINCIN':
+  shapes=circle(215,133,106,'fill')+circle(215,133,53,'soft')+
+   P('M215 133 L321 133 M215 133 L268 133')+L(225,119,'7 cm')+L(276,124,'14 cm');
+  caption='Dua lingkaran sepusat: jari-jari dalam 7 cm, jari-jari luar 14 cm.';break;
+ case 'BUSUR':
+  shapes=circle(215,158,100,'dash')+P('M215 158 L315 158 M215 158 L265 71')+
+   `<path d="M315 158 A100 100 0 0 0 265 71" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round"/>`+
+   L(226,144,'60°')+L(271,171,'r = 21 cm');
+  caption='Busur berhadapan dengan sudut pusat 60° dan jari-jari 21 cm.';break;
+ case 'JALAN_MELINGKAR':
+  shapes=circle(215,133,104,'fill')+circle(215,133,69,'soft')+
+   P('M215 133 L284 133 M284 133 L319 133')+L(227,117,'14 m')+L(275,117,'7 m')+
+   L(147,136,'Kolam')+L(135,33,'Jalan setapak');
+  caption='Kolam berjari-jari 14 m dikelilingi jalan selebar 7 m (paving hanya pada cincin).';break;
+ case 'KERUCUT':
+  shapes=P('M143 190 Q214 225 287 190 L215 40 Z M143 190 Q215 158 287 190')+
+   D('M215 40 L215 190')+P('M215 190 L287 190')+
+   L(220,110,'t')+L(244,201,'r')+L(258,108,'s')+L(206,34,'T');
+  caption='Kerucut: r = jari-jari alas, t = tinggi, s = garis pelukis.';break;
+ case 'JARING_KERUCUT':
+  shapes=`<path class="fill" d="M190 176 L95 89 A139 139 0 0 1 310 87 Z"/>`+
+   circle(356,190,33,'soft')+L(178,190,'T')+L(116,74,'s')+L(290,73,'busur')+L(349,197,'alas');
+  caption='Jaring-jaring kerucut: satu juring sebagai selimut dan satu lingkaran alas.';break;
+ case 'TABUNG_BAMBU':
+  shapes=`<path class="fill" d="M149 64 C149 35 283 35 283 64 L283 189 C283 216 149 216 149 189 Z"/>`+
+   `<ellipse cx="216" cy="64" rx="67" ry="23" fill="#fff" stroke="#6d28d9" stroke-width="2"/>`+
+   `<path d="M149 189 A67 23 0 0 0 283 189" class="stroke"/>`+
+   P('M216 64 L283 64 M312 64 V189')+L(239,55,'r = 7 cm')+L(319,127,'20 cm');
+  caption='Tabung bambu: jari-jari 7 cm dan tinggi dalam 20 cm.';break;
+ case 'BELAHAN_BOLA':
+  shapes=`<path class="fill" d="M107 153 A107 107 0 0 1 321 153 L107 153 Z"/>`+
+   `<ellipse cx="214" cy="153" rx="107" ry="27" fill="#f4edff" stroke="#6d28d9" stroke-width="2"/>`+
+   P('M214 153 L321 153')+L(244,143,'7 cm');
+  caption='Setengah bola pejal berjari-jari 7 cm; permukaan mencakup alas lingkaran.';break;
+ case 'KAPSUL':
+  shapes=`<rect class="fill" x="154" y="82" width="124" height="108"/>`+
+   `<path class="fill" d="M154 82 A62 62 0 0 1 278 82 Z"/>`+
+   `<path class="fill" d="M154 190 A62 62 0 0 0 278 190 Z"/>`+
+   P('M216 82 H278 M298 82 V190')+L(228,74,'r = 7 dm')+L(306,135,'10 dm');
+  caption='Tabung sepanjang 10 dm dengan kedua ujung berbentuk setengah bola (r = 7 dm).';break;
+ case 'TENDA_PRISMA':
+  shapes=P('M83 171 L161 60 L242 171 L83 171 M161 60 L315 31 L402 142 L242 171 M315 31 L315 142 M242 171 L402 142')+
+   D('M83 171 L231 140 L402 142 M161 60 L161 171')+
+   L(143,191,'6 m')+L(320,176,'8 m')+L(150,113,'4 m')+L(243,66,'5 m');
+  caption='Tenda berbentuk prisma segitiga tertutup: panjang 8 m, lebar alas 6 m, tinggi 4 m, sisi miring 5 m.';break;
+ case 'KARDUS_KALENG':
+  shapes=P('M111 98 L253 98 L330 60 L184 60 Z M111 98 V195 H253 V98 M253 195 L330 156 V60')+
+   D('M111 195 L184 156 L330 156 M184 60 L184 156')+
+   `<ellipse cx="203" cy="154" rx="31" ry="11" fill="#ede3ff" stroke="#6d28d9" stroke-width="2"/>`+
+   P('M172 154 V195 M234 154 V195')+
+   L(132,218,'40 cm')+L(299,182,'30 cm')+L(334,120,'24 cm')+
+   L(176,139,'r = 5 cm')+L(171,235,'tinggi kaleng 12 cm');
+  caption='Kardus 40 × 30 × 24 cm dan kaleng berbentuk tabung dengan r = 5 cm, t = 12 cm.';break;
+ default: return '';
+ }
+ const svg=`<svg viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram matematika untuk soal ${id}">${shapes}</svg>`;
+ return `<figure class="diagram-card">${svg}<figcaption>${escapeHTML(caption)}</figcaption></figure>`;
 }
-function selectAnswer(letter) {
-  if (!state.session || state.submitting || !['A','B','C','D'].includes(letter)) return;
-  const q = state.session.pertanyaan[state.current];
-  state.answers[q.id] = letter;
-  renderQuestion(); renderNumberGrid(); refreshCounters(); storageSet(); scheduleSave();
+async function boot(){
+ try{state.public=await ambilKonfigurasiAwal();}
+ catch(e){state.role='murid';loginPage(e.message);return;}
+ const teacher=guruStorageGet();
+ if(teacher&&teacher.token){state.role='guru';state.guruToken=teacher.token;state.guruName=teacher.nama||'guru';
+  try{await bukaDashboardGuru();return;}catch(e){guruStorageClear();state.guruToken='';state.role='murid';}}
+ const old=storageGet();
+ if(old&&old.token){
+  try{useResponse(await callServer('ambilUjian',old.token));return;}
+  catch(e){storageClear();loginPage('Sesi sebelumnya tidak dapat dipulihkan: '+e.message);return;}
+ }
+ loginPage();
 }
-function toggleFlag() {
-  if (!state.session || state.submitting) return;
-  const q = state.session.pertanyaan[state.current];
-  if (state.flags[q.id]) delete state.flags[q.id]; else state.flags[q.id] = true;
-  renderQuestion(); renderNumberGrid(); refreshCounters(); storageSet();
-}
-function scheduleSave() {
-  clearTimeout(state.saveTimer);
-  state.saveTimer = setTimeout(() => saveProgress(), 4500);
-  showSaveStatus('Perubahan belum dikirim...', false);
-}
-function showSaveStatus(text, error) {
-  const e = el('saveStatus');
-  if (e) { e.textContent = text; e.classList.toggle('error', !!error); }
-}
-async function saveProgress() {
-  if (!state.session || state.submitting) return;
-  clearTimeout(state.saveTimer);
-  if (state.saving) { state.needSave = true; return; }
-  state.saving = true;
-  state.needSave = false;
-  const snapshot = { ...state.answers };
-  showSaveStatus('Menyimpan jawaban...', false);
-  try {
-    const r = await callServer('simpanProgres', state.token, snapshot);
-    if (r.tipe === 'selesai') { showResult(r.hasil); return; }
-    const changed = JSON.stringify(snapshot) !== JSON.stringify(state.answers);
-    if (changed) state.needSave = true;
-    showSaveStatus('✓ Jawaban tersimpan', false);
-  } catch (e) {
-    if (state.session) { state.needSave = true; showSaveStatus('Gagal menyimpan. Akan dicoba lagi.', true); }
-  } finally {
-    state.saving = false;
-    if (state.needSave && state.session && !state.submitting) {
-      state.needSave = false;
-      clearTimeout(state.saveTimer);
-      state.saveTimer = setTimeout(() => saveProgress(), 4000);
-    }
-  }
-}
-function updateTimer() {
-  if (!state.session || state.submitting) return;
-  const left = Math.max(0, new Date(state.session.deadline).getTime() - Date.now());
-  const sec = Math.ceil(left / 1000);
-  const hh = Math.floor(sec / 3600);
-  const mm = Math.floor(sec % 3600 / 60);
-  const ss = sec % 60;
-  const digits = [hh,mm,ss].map(x => String(x).padStart(2,'0')).join(':');
-  const e = el('timerDigits'); if (e) e.textContent = digits;
-  const box = el('timerBox'); if (box) box.classList.toggle('danger', left <= 600000);
-  if (left <= 0) finishExam(true);
-}
-function openModal() {
-  if (!state.session || state.submitting) return;
-  const c = examCounts();
-  el('modalText').innerHTML = `Anda telah menjawab <b>${c.answered} dari ${c.total} soal</b>.
-    ${c.blank ? `Masih ada <b>${c.blank} soal yang belum dijawab</b>.` : 'Semua soal sudah dijawab.'}
-    <br><br>Setelah dikumpulkan, jawaban tidak dapat diubah lagi.`;
-  modal.hidden = false;
-  el('modalConfirm').focus();
-}
-function closeModal() { modal.hidden = true; }
-async function finishExam(auto = false) {
-  if (!state.session || state.submitting) return;
-  closeModal(); state.submitting = true;
-  clearTimeout(state.saveTimer);
-  clearInterval(state.tick); clearInterval(state.periodic);
-  const button = el('finishButton'); if (button) { button.disabled = true; button.textContent = 'Mengumpulkan jawaban...'; }
-  showSaveStatus(auto ? 'Waktu habis. Jawaban sedang dikumpulkan...' : 'Mengirim jawaban ke server...', false);
-  try {
-    const r = await callServer('akhiriUjian', state.token, { ...state.answers });
-    if (r.tipe !== 'selesai') throw new Error('Server belum menyelesaikan penilaian.');
-    showResult(r.hasil);
-  } catch (e) {
-    state.submitting = false;
-    if (button) { button.disabled = false; button.textContent = 'Coba Kumpulkan Lagi'; }
-    showSaveStatus('Gagal mengumpulkan. Periksa internet dan coba lagi.', true);
-    notify(e.message);
-    // Timer boleh berakhir; server tetap menghentikan ujian sesuai batas waktu asli.
-  }
-}
-function cleanup() {
-  clearInterval(state.tick); clearInterval(state.periodic); clearTimeout(state.saveTimer);
-  state.tick = null; state.periodic = null; state.saveTimer = null;
-}
-function localTime(value) {
-  const d = new Date(value);
-  if (Number.isNaN(d.getTime())) return '-';
-  return d.toLocaleString('id-ID', { day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit' });
-}
-function scoreFmt(number) {
-  return Number(number || 0).toLocaleString('id-ID', { maximumFractionDigits: 2 });
-}
-function showResult(result) {
-  cleanup(); closeModal();
-  state.session = null; state.submitting = false;
-  storageClear(); state.token = ''; state.answers = {}; state.flags = {};
-  const visible = result && typeof result.nilai === 'number';
-  const name = escapeHTML(result.nama || 'Peserta');
-  const meta = `Kelas ${escapeHTML(result.kelas || '-')}`;
-  const scored = visible ? `<div class="card result-card"><div class="score-layout">
-    <div class="score-circle" style="--score:${Math.max(0,Math.min(100,result.nilai))}%">
-      <div class="score-inner"><strong>${scoreFmt(result.nilai)}</strong><span>Nilai akhir / 100</span></div>
-    </div><div><div class="result-name">${name}</div><div class="result-meta">${meta}</div>
-      <div style="margin-top:13px"><span class="pill ${result.remedial && result.remedial.length ? 'orange' : 'green'}">${escapeHTML(result.status)}</span></div>
-      <div class="score-metrics"><div class="score-metric"><b>${result.benar}</b><span>Jawaban benar</span></div>
-        <div class="score-metric"><b>${result.dijawab} / ${result.jumlahSoal}</b><span>Soal terjawab</span></div>
-        <div class="score-metric"><b>${result.kktp}</b><span>KKTP per TP</span></div></div>
-      <p class="help" style="margin-top:12px">Kategori nilai keseluruhan: ${escapeHTML(result.kategori)}.</p>
-    </div></div></div>
-    <section class="card tp-panel"><div class="eyebrow">Pencapaian kompetensi</div>
-      <h2 style="font-size:21px;margin-bottom:5px">Hasil per Tujuan Pembelajaran</h2>
-      <p class="sub" style="margin-bottom:14px">Setiap TP dinilai pada skala 0–100 berdasarkan bobot soal pada file sumber.</p>
-      <table class="tp-list"><thead><tr><th>TP</th><th>Tujuan Pembelajaran</th><th>Nilai</th><th>Keterangan</th></tr></thead><tbody>
-      ${(result.tps || []).map(t => `<tr><td class="tp-code">${escapeHTML(t.kode)}</td>
-        <td class="tp-goal">${escapeHTML(t.tujuan)}</td>
-        <td style="font-weight:850">${scoreFmt(t.nilai)}</td>
-        <td><span class="pill ${t.tuntas ? 'green' : 'orange'}">${t.tuntas ? 'Tuntas' : 'Remedial'}</span></td></tr>`).join('')}
-      </tbody></table>
-      ${result.remedial && result.remedial.length ? `<div class="notice" style="margin:18px 0 0">
-        <b>Perlu tindak lanjut:</b> ${escapeHTML(result.remedial.join(', '))}. Hubungi guru untuk remedial pada TP tersebut.</div>` :
-        `<div class="notice" style="margin:18px 0 0">Semua Tujuan Pembelajaran mencapai nilai minimal ${result.kktp}.</div>`}
-    </section>` : `<div class="card result-card" style="text-align:center;padding:35px">
-      <div class="result-name">${name}</div><p class="result-meta">${meta}</p>
-      <p>${escapeHTML(result.keterangan || 'Jawaban telah diterima dan dapat diperiksa oleh guru.')}</p>
-    </div>`;
-  app.innerHTML = `${nav()}<main class="wrap result"><div class="result-intro">
-    <div class="checkmark">✓</div><h1>Jawaban berhasil dikumpulkan</h1>
-    <p>Terima kasih telah mengikuti asesmen sumatif. Selesai: ${escapeHTML(localTime(result.selesai))}.</p>
-  </div>${scored}<div class="result-footer"><button class="button secondary" id="printResult" type="button">Cetak / Simpan Hasil</button>
-    <button class="button" id="backLogin" type="button">Kembali ke Awal</button></div></main>
-    <div class="bottom-note">Nilai dan detail jawaban tercatat pada Google Spreadsheet guru.</div>`;
-  window.scrollTo(0, 0);
-  el('printResult').onclick = () => window.print();
-  el('backLogin').onclick = () => loginPage();
-}
-async function boot() {
-  try { state.public = await ambilKonfigurasiAwal(); }
-  catch (e) { loginPage(e.message); return; }
-  const guru = guruStorageGet();
-  if (guru && guru.token) {
-    state.guruToken = guru.token; state.guruName = guru.nama || 'guru'; state.role = 'guru';
-    try { await bukaDashboardGuru(); return; }
-    catch (e) { guruStorageClear(); state.guruToken = ''; state.guruName = ''; }
-  }
-  const old = storageGet();
-  if (old && old.token) {
-    try { useResponse(await callServer('ambilUjian', old.token)); return; }
-    catch (e) { loginPage('Sesi sebelumnya tidak dapat dipulihkan: ' + e.message); return; }
-  }
-  loginPage();
-}
-el('modalCancel').addEventListener('click', closeModal);
-el('modalConfirm').addEventListener('click', () => finishExam(false));
-modal.addEventListener('click', ev => { if (ev.target === modal) closeModal(); });
-document.addEventListener('keydown', ev => {
-  if (ev.key === 'Escape' && !modal.hidden) { closeModal(); return; }
-  if (ev.key === 'Escape' && el('examSidebar') && el('examSidebar').classList.contains('is-open')) { closeQuestionNav(); return; }
-  if (!state.session || state.submitting || !modal.hidden) return;
-  if (['INPUT', 'TEXTAREA', 'SELECT'].includes((document.activeElement && document.activeElement.tagName) || '')) return;
-  if (['1','2','3','4'].includes(ev.key)) {
-    selectAnswer(['A','B','C','D'][Number(ev.key) - 1]);
-  } else if (ev.key === 'ArrowLeft') {
-    ev.preventDefault(); gotoQuestion(state.current - 1);
-  } else if (ev.key === 'ArrowRight') {
-    ev.preventDefault(); gotoQuestion(state.current + 1);
-  } else if (ev.key.toLowerCase() === 'r') { toggleFlag(); }
+el('modalCancel').addEventListener('click',closeModal);
+el('modalConfirm').addEventListener('click',()=>finishExam(false));
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'&&!modal.hidden){closeModal();return;}
+ if(e.key==='Escape'&&el('detailOverlay')){el('detailOverlay').remove();return;}
+ if(e.key==='Escape'&&el('examSidebar')&&el('examSidebar').classList.contains('is-open')){closeQuestionNav();return;}
+ if(!state.session||state.submitting||!modal.hidden)return;
+ if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement&&document.activeElement.tagName))return;
+ if(['1','2','3','4'].includes(e.key))selectAnswer(['A','B','C','D'][Number(e.key)-1]);
+ else if(e.key==='ArrowLeft'){e.preventDefault();gotoQuestion(state.current-1);}
+ else if(e.key==='ArrowRight'){e.preventDefault();gotoQuestion(state.current+1);}
+ else if(e.key.toLowerCase()==='r')toggleFlag();
 });
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'hidden' && state.session) { storageSet(); saveProgress(); }
-});
-window.addEventListener('beforeunload', () => { if (state.session) storageSet(); });
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&state.session){storageSet();saveProgress();}});
+window.addEventListener('beforeunload',()=>{if(state.session)storageSet();});
 boot();
+
 </script>
 </body>
 </html>
