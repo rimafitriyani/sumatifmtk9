@@ -364,9 +364,9 @@ const escapeHTML = s => String(s === null || s === undefined ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const el = id => document.getElementById(id);
-// ISI URL Web App GAS yang berakhiran /exec, sekali saja sebelum upload GitHub.
-// JANGAN masukkan password guru atau kunci soal di file ini.
-const GAS_WEB_APP_URL = 'TEMPEL_URL_WEB_APP_GAS_DI_SINI';
+// URL deployment GAS pemilik CBT sudah diisi. Tidak perlu konfigurasi manual.
+// Password Guru dan kunci jawaban TIDAK disimpan dalam HTML publik.
+const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzgs8-Ui--VIs7Cx2Rax4Fp8tlG6atjsPz8aBweSW5XNXlM60Shi6x2SX04z7dTTKyn/exec';
 
 function urlBackend() {
   const raw = GAS_WEB_APP_URL.trim();
@@ -446,10 +446,11 @@ async function callServer(name, ...args) {
   const url = urlBackend();
   const id = idPermintaan();
   const body = new URLSearchParams({
-    cbt_bridge: '007', cbt_request_id: id,
+    cbt_bridge: '008', cbt_request_id: id,
     cbt_action: name, cbt_args: JSON.stringify(args)
   });
-  // This is a simple cross-origin POST (no preflight). Its response is opaque.
+  // Simple cross-origin POST (tanpa preflight); respons bersifat opaque.
+  // Hasilnya diterima melalui polling JSONP dengan ID acak, bukan dibaca via fetch.
   // No password, token, or answers are passed via query parameters.
   try {
     await fetch(url, { method: 'POST', mode: 'no-cors', redirect: 'follow',
@@ -459,6 +460,42 @@ async function callServer(name, ...args) {
   }
   return pollGAS(url, id, Date.now() + 85000);
 }
+
+/** Baca metadata publik melalui JSONP (GET read-only, tanpa CORS). */
+function ambilKonfigurasiAwal() {
+  const url = urlBackend();
+  const id = idPermintaan();
+  const callback = '__cbt_pub_' + id;
+  return new Promise((resolve, reject) => {
+    let selesai = false;
+    const node = document.createElement('script');
+    const timeout = setTimeout(() => beres(new Error(
+      'GAS tidak merespons. Pastikan deployment versi terbaru dan akses Web App = Anyone.'
+    )), 16000);
+    function beres(err, result) {
+      if (selesai) return;
+      selesai = true;
+      clearTimeout(timeout);
+      node.remove();
+      delete window[callback];
+      if (err) reject(err);
+      else resolve(result);
+    }
+    window[callback] = data => {
+      if (!data || !data.ok || data.bridge !== '008' || !data.result) {
+        beres(new Error('Versi GAS belum sesuai. Pilih Deploy → Manage deployments → New version.'));
+        return;
+      }
+      beres(null, data.result);
+    };
+    node.onerror = () => beres(new Error(
+      'GAS belum dapat diakses publik. Di setelan deployment, pilih akses Anyone dan deploy versi baru.'
+    ));
+    node.src = url + '?cbt_public=' + id + '&callback=' + callback + '&_=' + Date.now();
+    document.head.appendChild(node);
+  });
+}
+
 function storageGet() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (_) { return null; } }
 function storageSet() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -898,7 +935,7 @@ function showResult(result) {
   el('backLogin').onclick = () => loginPage();
 }
 async function boot() {
-  try { state.public = await callServer('konfigurasiPublik'); }
+  try { state.public = await ambilKonfigurasiAwal(); }
   catch (e) { loginPage(e.message); return; }
   const guru = guruStorageGet();
   if (guru && guru.token) {
